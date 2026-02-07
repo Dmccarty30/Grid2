@@ -12,7 +12,7 @@
 
 This checklist provides a step-by-step implementation guide for building the complete Grid Electric Services platform, incorporating all data points from your actual field forms (DCO and Outage Field Report).
 
-### Key Findings from Form Analysis:
+### Key Findings from Form Analysis
 
 1. **Equipment Types:** 14 different equipment types (Transformer, Recloser, Regulator, Switch, etc.)
 2. **Wire Sizes:** 24 standard sizes (AWG 14 through 4/0, kcmil 250-1000)
@@ -78,6 +78,7 @@ INSERT INTO pole_specifications ...
 ```
 
 **Week 1 Checklist:**
+
 - [ ] All tables created in Supabase
 - [ ] Reference data populated
 - [ ] RLS policies configured
@@ -91,7 +92,7 @@ INSERT INTO pole_specifications ...
 
 ```bash
 # Navigate to project
-cd /mnt/okcomputer/output/app
+cd grid-electric-app
 
 # Core dependencies (already installed)
 # npm install @supabase/supabase-js zustand @tanstack/react-query
@@ -180,6 +181,7 @@ export const APP_CONFIG = {
 ```
 
 **Week 1-2 Checklist:**
+
 - [ ] All dependencies installed
 - [ ] Environment variables configured
 - [ ] App config created
@@ -212,7 +214,7 @@ lib/
 ### 3.2 Key Functions to Implement
 
 | Function | File | Purpose |
-|----------|------|---------|
+| ---------- | ------ | --------- |
 | `validatePhoto()` | photoValidation.ts | EXIF, GPS, hash, size |
 | `validateGeofence()` | geofenceValidation.ts | Distance from center |
 | `validateTimeEntry()` | timeEntryValidation.ts | Duration, GPS spoofing |
@@ -221,6 +223,7 @@ lib/
 | `validateAssessment()` | assessmentValidation.ts | Required fields |
 
 **Week 2 Checklist:**
+
 - [ ] All validation functions implemented
 - [ ] Unit tests passing
 - [ ] GPS calculations accurate
@@ -269,7 +272,7 @@ interface PhotoUploadQueue {
 
 ### 4.3 Photo Validation Flow
 
-```
+```sql
 User Takes Photo
     ↓
 Extract EXIF Data (GPS, timestamp, device)
@@ -290,6 +293,7 @@ Show Preview with Metadata
 ```
 
 **Week 3 Checklist:**
+
 - [ ] Photo capture component working
 - [ ] EXIF extraction accurate
 - [ ] GPS validation working
@@ -396,6 +400,7 @@ const assessmentSteps = [
 ```
 
 **Week 4-5 Checklist:**
+
 - [ ] All 8 form steps implemented
 - [ ] Wire size dropdown populated
 - [ ] Equipment catalog searchable
@@ -454,6 +459,7 @@ interface GPSTrackingService {
 ```
 
 **Week 5-6 Checklist:**
+
 - [ ] Clock in/out working
 - [ ] GPS validation accurate
 - [ ] Photo required at clock in/out
@@ -507,6 +513,7 @@ interface ReviewCheckResult {
 ```
 
 **Week 6-7 Checklist:**
+
 - [ ] Review interface complete
 - [ ] All data visible to admin
 - [ ] Integrity checks working
@@ -552,6 +559,7 @@ interface SyncManager {
 ```
 
 **Week 7-8 Checklist:**
+
 - [ ] Sync queue working
 - [ ] Background sync functional
 - [ ] Conflict resolution UI
@@ -582,6 +590,7 @@ interface SyncManager {
 - [ ] Sync queue with 100 items
 
 **Week 9-10 Checklist:**
+
 - [ ] All test scenarios pass
 - [ ] Load testing complete
 - [ ] Security audit passed
@@ -612,7 +621,7 @@ interface SyncManager {
 
 ## SUMMARY: CRITICAL IMPLEMENTATION ITEMS
 
-### Must-Have for MVP:
+### Must-Have for MVP
 
 1. **Photo System**
    - [ ] EXIF GPS extraction

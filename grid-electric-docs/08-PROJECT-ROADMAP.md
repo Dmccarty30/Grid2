@@ -22,7 +22,7 @@
 
 ## 1. PHASE OVERVIEW
 
-```
+```dart
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           MVP DEVELOPMENT TIMELINE                           │
 ├─────────────────────────────────────────────────────────────────────────────┤
@@ -63,6 +63,7 @@
 | 5 | Create base layout components | App shell |
 
 **Week 1 Deliverables:**
+
 - [ ] GitHub repository with project structure
 - [ ] Supabase project configured
 - [ ] Local development environment working
@@ -84,6 +85,7 @@
 | 5 | Create auth hooks | useAuth, useUser |
 
 **Week 2 Deliverables:**
+
 - [ ] Complete authentication system
 - [ ] All database tables created
 - [ ] RLS policies implemented
@@ -105,6 +107,7 @@
 | 5 | Implement e-signature | Signature pad |
 
 **Week 3 Deliverables:**
+
 - [ ] 8-step onboarding wizard
 - [ ] Document upload with preview
 - [ ] Form validation on all steps
@@ -126,12 +129,14 @@
 | 5 | Build subcontractor detail view | Profile view |
 
 **Week 4 Deliverables:**
+
 - [ ] Complete onboarding flow (11 steps)
 - [ ] Admin approval workflow
 - [ ] Subcontractor management UI
 - [ ] Dashboard framework
 
 **Phase 1 Completion Criteria:**
+
 - ✅ New subcontractor can complete full onboarding
 - ✅ Admin can review and approve applications
 - ✅ All data persists to database
@@ -156,6 +161,7 @@
 | 5 | Create ticket status history | Timeline view |
 
 **Week 5 Deliverables:**
+
 - [ ] Complete ticket CRUD
 - [ ] Ticket assignment workflow
 - [ ] Status tracking
@@ -176,6 +182,7 @@
 | 5 | Build mobile map view | Full-screen map |
 
 **Week 6 Deliverables:**
+
 - [ ] Interactive map with tickets
 - [ ] Geofence validation
 - [ ] Route optimization
@@ -196,6 +203,7 @@
 | 5 | Add photo checksum validation | Integrity check |
 
 **Week 7 Deliverables:**
+
 - [ ] Photo capture with GPS
 - [ ] EXIF data extraction
 - [ ] Cloud storage integration
@@ -216,12 +224,14 @@
 | 5 | Test offline functionality | Offline testing |
 
 **Week 8 Deliverables:**
+
 - [ ] IndexedDB with Dexie.js
 - [ ] Service worker caching
 - [ ] Offline data access
 - [ ] Sync queue implementation
 
 **Phase 2 Completion Criteria:**
+
 - ✅ Admin can create and assign tickets
 - ✅ Subcontractor can view tickets on map
 - ✅ GPS validation works
@@ -247,6 +257,7 @@
 | 5 | Create time reports | Summary views |
 
 **Week 9 Deliverables:**
+
 - [ ] GPS-verified time clock
 - [ ] Time entry management
 - [ ] Admin approval workflow
@@ -267,6 +278,7 @@
 | 5 | Create expense export | CSV/PDF export |
 
 **Week 10 Deliverables:**
+
 - [ ] Expense submission
 - [ ] Receipt upload with OCR
 - [ ] Policy enforcement
@@ -287,6 +299,7 @@
 | 5 | Create assessment PDF export | PDF generation |
 
 **Week 11 Deliverables:**
+
 - [ ] Complete assessment form
 - [ ] Safety checklist
 - [ ] Equipment catalog
@@ -307,12 +320,14 @@
 | 5 | Implement export functions | CSV/Excel/PDF |
 
 **Week 12 Deliverables:**
+
 - [ ] Automated invoice generation
 - [ ] PDF invoice export
 - [ ] 1099 tracking
 - [ ] Dashboard with metrics
 
 **Phase 3 Completion Criteria:**
+
 - ✅ Subcontractor can clock in/out with GPS
 - ✅ Expenses can be submitted with receipts
 - ✅ Damage assessments can be completed
@@ -338,6 +353,7 @@
 | 5 | Bug fixes | Issue resolution |
 
 **Week 13 Deliverables:**
+
 - [ ] Test coverage > 70%
 - [ ] All critical paths tested
 - [ ] Performance budget met
@@ -358,6 +374,7 @@
 | 5 | Create error boundaries | Error handling |
 
 **Week 14 Deliverables:**
+
 - [ ] Background sync working
 - [ ] Push notifications
 - [ ] Email notifications
@@ -378,6 +395,7 @@
 | 5 | Conduct internal training | Team training |
 
 **Week 15 Deliverables:**
+
 - [ ] Complete documentation
 - [ ] Training videos
 - [ ] Quick start guide
@@ -398,12 +416,14 @@
 | 5 | Official launch | Public release |
 
 **Week 16 Deliverables:**
+
 - [ ] Production deployment
 - [ ] Monitoring active
 - [ ] Backups configured
 - [ ] Official launch
 
 **Phase 4 Completion Criteria:**
+
 - ✅ All tests passing
 - ✅ Production deployment live
 - ✅ Documentation complete
