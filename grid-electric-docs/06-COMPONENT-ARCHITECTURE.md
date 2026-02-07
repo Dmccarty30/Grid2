@@ -23,8 +23,7 @@
 
 ## 1. FOLDER STRUCTURE
 
-```
-/mnt/okcomputer/output/app/
+```typescript
 │
 ├── 📁 app/                          # Next.js App Router
 │   ├── 📁 (auth)/                   # Auth route group
@@ -358,38 +357,38 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                           COMPONENT HIERARCHY                                │
+│                           COMPONENT HIERARCHY                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  LAYOUT COMPONENTS (Shell)                                                   │
-│  ├── AppShell.tsx                    # Main layout wrapper                   │
+│                                                                             │
+│  LAYOUT COMPONENTS (Shell)                                                  │
+│  ├── AppShell.tsx                    # Main layout wrapper                  │
 │  │   ├── Sidebar.tsx (desktop)      # Navigation sidebar                    │
 │  │   ├── BottomNav.tsx (mobile)     # Mobile navigation                     │
-│  │   ├── TopBar.tsx                 # Header bar                             │
-│  │   └── PageHeader.tsx             # Page title + actions                   │
+│  │   ├── TopBar.tsx                 # Header bar                            │
+│  │   └── PageHeader.tsx             # Page title + actions                  │
 │  │                                                                          │
-│  │   [AuthProvider]                   # Authentication context               │
-│  │   [ThemeProvider]                  # Theme/styling context                │
-│  │   [SyncProvider]                   # Offline sync context                 │
-│  │   [NotificationProvider]           # Push notification context            │
+│  │   [AuthProvider]                   # Authentication context              │
+│  │   [ThemeProvider]                  # Theme/styling context               │
+│  │   [SyncProvider]                   # Offline sync context                │
+│  │   [NotificationProvider]           # Push notification context           │
 │  │                                                                          │
-│  PAGE COMPONENTS (Routes)                                                    │
+│  PAGE COMPONENTS (Routes)                                                   │
 │  ├── (auth)/login/page.tsx           # Login page                           │
 │  ├── (admin)/dashboard/page.tsx      # Admin dashboard                      │
 │  ├── (subcontractor)/tickets/page.tsx # Sub ticket list                     │
 │  │                                                                          │
-│  FEATURE COMPONENTS (Business Logic)                                         │
+│  FEATURE COMPONENTS (Business Logic)                                        │
 │  ├── TicketList.tsx                  # Ticket list with filters             │
-│  │   ├── TicketCard.tsx               # Individual ticket card               │
+│  │   ├── TicketCard.tsx               # Individual ticket card              │
 │  │   ├── TicketFilters.tsx            # Filter controls                     │
 │  │   └── StatusBadge.tsx              # Status indicator                    │
 │  │                                                                          │
-│  UI COMPONENTS (Primitives)                                                  │
+│  UI COMPONENTS (Primitives)                                                 │
 │  ├── Button (shadcn)                 # Base button                          │
 │  ├── Card (shadcn)                   # Base card                            │
 │  ├── Input (shadcn)                  # Base input                           │
 │  └── Badge (shadcn)                  # Base badge                           │
-│                                                                              │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

@@ -5,6 +5,7 @@
 This is the **Grid Electric Services Damage Assessment Platform** — a Progressive Web Application (PWA) for managing independent 1099 subcontractor crews performing utility damage assessments for government contracts.
 
 **Business Context:**
+
 - **Prime Contractor:** Grid Electric Services
 - **Workforce Model:** Independent 1099 subcontractors (not employees)
 - **Client Base:** Power utility companies with government contracts
@@ -17,6 +18,7 @@ This is the **Grid Electric Services Damage Assessment Platform** — a Progress
 ## Technology Stack
 
 ### Frontend
+
 | Component | Technology | Version |
 |-----------|------------|---------|
 | Framework | Next.js | 14 (App Router) |
@@ -30,6 +32,7 @@ This is the **Grid Electric Services Damage Assessment Platform** — a Progress
 | Maps | Mapbox GL JS | Latest |
 
 ### Backend
+
 | Component | Technology |
 |-----------|------------|
 | BaaS | Supabase |
@@ -40,6 +43,7 @@ This is the **Grid Electric Services Damage Assessment Platform** — a Progress
 | Security | Row-Level Security (RLS) |
 
 ### External Services
+
 | Service | Purpose |
 |---------|---------|
 | Mapbox | Maps, routing, geocoding |
@@ -51,7 +55,7 @@ This is the **Grid Electric Services Damage Assessment Platform** — a Progress
 
 ## Project Structure
 
-```
+```bash
 grid-electric-docs/           # Technical documentation package
 ├── 01-TECHNICAL-PRD.md       # Product requirements & architecture
 ├── 02-DATABASE-SCHEMA.md     # Supabase PostgreSQL schema
@@ -94,6 +98,7 @@ app/                          # Next.js application (to be created)
 ## Build and Development Commands
 
 ### Initial Setup
+
 ```bash
 # 1. Initialize project
 npx create-next-app@latest grid-electric --typescript --tailwind --app
@@ -109,6 +114,7 @@ npm install exifreader browser-image-compression tesseract.js react-signature-ca
 ```
 
 ### Development
+
 ```bash
 # Run development server
 npm run dev
@@ -127,7 +133,9 @@ npx tsc --noEmit
 ```
 
 ### Environment Variables
+
 Create `.env.local` with:
+
 ```bash
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=your-project-url
@@ -150,6 +158,7 @@ NEXT_PUBLIC_MIN_PHOTOS_REQUIRED=4
 ## Code Style Guidelines
 
 ### File Naming Conventions
+
 | Type | Pattern | Example |
 |------|---------|---------|
 | Pages | `page.tsx` | `app/(admin)/dashboard/page.tsx` |
@@ -161,6 +170,7 @@ NEXT_PUBLIC_MIN_PHOTOS_REQUIRED=4
 | Constants | SCREAMING_SNAKE_CASE | `TICKET_STATUSES`, `WORK_TYPES` |
 
 ### Component Structure
+
 ```typescript
 // 1. Imports (ordered: React, libs, components, hooks, utils, types)
 import React from 'react';
@@ -186,6 +196,7 @@ export default TicketCard;
 ```
 
 ### Import Order
+
 1. React/Next.js imports
 2. Third-party library imports
 3. shadcn/ui components (`@/components/ui/*`)
@@ -200,6 +211,7 @@ export default TicketCard;
 ## Core Features & Requirements
 
 ### 1. User Roles
+
 | Role | Permissions |
 |------|-------------|
 | SUPER_ADMIN | Full system access |
@@ -208,18 +220,21 @@ export default TicketCard;
 | AUDITOR | Read-only access to all data |
 
 ### 2. Ticket Lifecycle (13 Statuses)
+
 ```
 DRAFT → ASSIGNED → IN_ROUTE → ON_SITE → IN_PROGRESS → COMPLETE → 
 PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 ```
 
 ### 3. GPS Requirements
+
 - **Accuracy threshold:** < 100 meters
 - **Geofence radius:** 500 meters (configurable)
 - **Clock-in photo:** Required with GPS verification
 - **Update frequency:** 30s (IN_ROUTE), 5min (ON_SITE)
 
 ### 4. Photo Requirements
+
 - **Minimum per assessment:** 4 photos
 - **Mandatory types:** Overview, Equipment, Damage, Safety
 - **GPS tagging:** Required (extracted from EXIF)
@@ -229,6 +244,7 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 - **Integrity:** SHA-256 checksum on upload
 
 ### 5. Time Tracking Rules
+
 - **Max duration:** 12 hours per entry
 - **Warning threshold:** 8 hours
 - **GPS verification:** Required at clock in/out
@@ -240,6 +256,7 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 ## Database Schema Overview
 
 ### Core Tables
+
 | Table | Purpose |
 |-------|---------|
 | profiles | User accounts (extends auth.users) |
@@ -261,6 +278,7 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 | audit_logs | Compliance audit trail |
 
 ### Security
+
 - **RLS enabled** on all tables
 - **Column-level encryption** for SSN, bank accounts
 - **Audit logging** for all changes
@@ -271,6 +289,7 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 ## Offline-First Architecture
 
 ### Storage Hierarchy
+
 | Layer | Technology | Purpose |
 |-------|------------|---------|
 | React State | useState/useReducer | UI state (session only) |
@@ -280,12 +299,14 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 | Cache API | Service Worker | Static assets (persistent) |
 
 ### Sync Strategy
+
 1. **Optimistic UI updates** — UI updates immediately
 2. **Local-first data** — All data originates in IndexedDB
 3. **Background sync** — Queue operations for when connectivity returns
 4. **Conflict resolution** — Server timestamp priority with user prompts
 
 ### Offline Capabilities
+
 | Feature | Online | Offline |
 |---------|--------|---------|
 | View tickets | Full | Cached (read-only) |
@@ -300,6 +321,7 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 ## Testing Instructions
 
 ### Critical Test Scenarios
+
 | Scenario | Expected Result |
 |----------|-----------------|
 | Contractor clocks in outside geofence | Error: "Must be within 500m of site" |
@@ -311,6 +333,7 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 | Offline assessment submission | Queued for sync |
 
 ### Performance Targets
+
 - Page load (initial): < 2s
 - Page load (subsequent): < 1s
 - API response: < 200ms
@@ -322,12 +345,14 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 ## Security Considerations
 
 ### Authentication
+
 - Password policy: 12+ chars, complexity requirements
 - Failed login lockout: 5 attempts = 15 min lockout
 - Session timeout: 8 hours idle, 24 hours max
 - MFA: Optional for MVP, required for admins post-MVP
 
 ### Data Encryption
+
 | Layer | Method |
 |-------|--------|
 | Data at rest | AES-256 (Supabase default) |
@@ -336,7 +361,9 @@ PENDING_REVIEW → APPROVED/NEEDS_REWORK → CLOSED
 | File storage | Server-side encryption |
 
 ### Audit Logging
+
 All actions logged with:
+
 - User ID
 - Timestamp (UTC)
 - Action type
@@ -349,23 +376,27 @@ All actions logged with:
 ## Development Phases (16-Week MVP)
 
 ### Phase 1: Foundation (Weeks 1-4)
+
 - Project setup, Auth system, Database schema
 - 12-step subcontractor onboarding flow
 - Admin approval workflow
 
 ### Phase 2: Core Features (Weeks 5-8)
+
 - Ticket system with 13-status lifecycle
 - GPS workflow with Mapbox integration
 - Photo capture with EXIF/GPS extraction
 - Offline storage foundation
 
 ### Phase 3: Operations (Weeks 9-12)
+
 - GPS-verified time tracking
 - Expense management with OCR
 - Damage assessment forms
 - Invoice generation & 1099 tracking
 
 ### Phase 4: Polish & Launch (Weeks 13-16)
+
 - Testing & QA (target: >70% coverage)
 - Background sync & conflict resolution
 - Documentation & training
@@ -396,14 +427,14 @@ npx shadcn add button card input select dialog dropdown-menu table tabs badge av
 
 ## External Documentation References
 
-- **Next.js 14:** https://nextjs.org/docs
-- **shadcn/ui:** https://ui.shadcn.com
-- **Supabase:** https://supabase.com/docs
-- **TanStack Query:** https://tanstack.com/query/latest
-- **Zustand:** https://docs.pmnd.rs/zustand
-- **Dexie.js:** https://dexie.org/docs
-- **Mapbox GL JS:** https://docs.mapbox.com/mapbox-gl-js
-- **Tailwind CSS:** https://tailwindcss.com/docs
+- **Next.js 14:** <https://nextjs.org/docs>
+- **shadcn/ui:** <https://ui.shadcn.com>
+- **Supabase:** <https://supabase.com/docs>
+- **TanStack Query:** <https://tanstack.com/query/latest>
+- **Zustand:** <https://docs.pmnd.rs/zustand>
+- **Dexie.js:** <https://dexie.org/docs>
+- **Mapbox GL JS:** <https://docs.mapbox.com/mapbox-gl-js>
+- **Tailwind CSS:** <https://tailwindcss.com/docs>
 
 ---
 
