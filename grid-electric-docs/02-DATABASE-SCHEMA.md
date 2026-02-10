@@ -1345,6 +1345,31 @@ CREATE INDEX idx_pending_sync ON sync_queue(id) WHERE status = 'PENDING';
 
 ## 11. ROW-LEVEL SECURITY POLICIES
 
+### 11.0 Helper Function (Prevents Recursion)
+
+```sql
+-- Helper function to check if current user has admin role
+-- Using SECURITY DEFINER to bypass RLS and avoid recursion
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  RETURN EXISTS (
+    SELECT 1 FROM profiles 
+    WHERE id = auth.uid() 
+    AND role IN ('SUPER_ADMIN', 'ADMIN')
+  );
+END;
+$$;
+
+-- Grant execute permission on the helper function
+GRANT EXECUTE ON FUNCTION public.is_admin() TO authenticated;
+GRANT EXECUTE ON FUNCTION public.is_admin() TO anon;
+```
+
 ### 11.1 Profiles RLS Policies
 
 ```sql
@@ -1352,26 +1377,21 @@ CREATE INDEX idx_pending_sync ON sync_queue(id) WHERE status = 'PENDING';
 CREATE POLICY profiles_select_own ON profiles
   FOR SELECT USING (id = auth.uid());
 
--- Profiles: Admins can read all profiles
+-- Profiles: Admins can read all profiles (using helper function to avoid recursion)
 CREATE POLICY profiles_select_admin ON profiles
-  FOR SELECT USING (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
-    )
-  );
+  FOR SELECT USING (is_admin());
 
 -- Profiles: Users can update their own profile (limited fields)
 CREATE POLICY profiles_update_own ON profiles
   FOR UPDATE USING (id = auth.uid())
   WITH CHECK (id = auth.uid());
 
--- Profiles: Only Super Admins can insert/delete
+-- Profiles: Only Admins can insert/delete
 CREATE POLICY profiles_insert_admin ON profiles
-  FOR INSERT WITH CHECK (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role = 'SUPER_ADMIN'
-    )
-  );
+  FOR INSERT WITH CHECK (is_admin());
+
+CREATE POLICY profiles_delete_admin ON profiles
+  FOR DELETE USING (is_admin());
 ```
 
 ### 11.2 Subcontractors RLS Policies
@@ -1383,19 +1403,16 @@ CREATE POLICY subcontractors_select_own ON subcontractors
 
 -- Subcontractors: Admins can read all
 CREATE POLICY subcontractors_select_admin ON subcontractors
-  FOR SELECT USING (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
-    )
-  );
+  FOR SELECT USING (is_admin());
+
+-- Subcontractors: Users can update their own record
+CREATE POLICY subcontractors_update_own ON subcontractors
+  FOR UPDATE USING (profile_id = auth.uid())
+  WITH CHECK (profile_id = auth.uid());
 
 -- Subcontractors: Admins can insert/update
 CREATE POLICY subcontractors_write_admin ON subcontractors
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
-    )
-  );
+  FOR ALL USING (is_admin());
 ```
 
 ### 11.3 Tickets RLS Policies
@@ -1411,24 +1428,7 @@ CREATE POLICY tickets_select_assigned ON tickets
 
 -- Tickets: Admins can do everything
 CREATE POLICY tickets_admin ON tickets
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
-    )
-  );
-
--- Tickets: Subcontractors can update status only
-CREATE POLICY tickets_update_status ON tickets
-  FOR UPDATE USING (
-    assigned_to IN (
-      SELECT id FROM subcontractors WHERE profile_id = auth.uid()
-    )
-  )
-  WITH CHECK (
-    assigned_to IN (
-      SELECT id FROM subcontractors WHERE profile_id = auth.uid()
-    )
-  );
+  FOR ALL USING (is_admin());
 ```
 
 ### 11.4 Time Entries RLS Policies
@@ -1444,11 +1444,7 @@ CREATE POLICY time_entries_own ON time_entries
 
 -- Time Entries: Admins can read all and update status
 CREATE POLICY time_entries_admin ON time_entries
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
-    )
-  );
+  FOR ALL USING (is_admin());
 ```
 
 ### 11.5 Expense Reports RLS Policies
@@ -1464,11 +1460,7 @@ CREATE POLICY expense_reports_own ON expense_reports
 
 -- Expense Reports: Admins can read all and update status
 CREATE POLICY expense_reports_admin ON expense_reports
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
-    )
-  );
+  FOR ALL USING (is_admin());
 ```
 
 ### 11.6 Media Assets RLS Policies
@@ -1479,22 +1471,50 @@ CREATE POLICY media_select_own ON media_assets
   FOR SELECT USING (uploaded_by = auth.uid());
 
 -- Media: Users can read media linked to their tickets/assessments
-CREATE POLICY media_select_linked ON media_assets
+CREATE POLICY media_select_assigned ON media_assets
   FOR SELECT USING (
-    entity_id IN (
-      SELECT id FROM tickets WHERE assigned_to IN (
-        SELECT id FROM subcontractors WHERE profile_id = auth.uid()
-      )
+    EXISTS (
+      SELECT 1 FROM tickets t
+      JOIN subcontractors s ON t.assigned_to = s.id
+      WHERE media_assets.entity_id = t.id::text
+      AND media_assets.entity_type = 'ticket'
+      AND s.profile_id = auth.uid()
     )
   );
 
 -- Media: Admins can do everything
 CREATE POLICY media_admin ON media_assets
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
-    )
-  );
+  FOR ALL USING (is_admin());
+```
+
+### 11.7 Reference Tables RLS Policies
+
+```sql
+-- Reference tables are read-only for all authenticated users
+CREATE POLICY equipment_types_read ON equipment_types
+  FOR SELECT USING (auth.role() = 'authenticated');
+
+CREATE POLICY hazard_categories_read ON hazard_categories
+  FOR SELECT USING (auth.role() = 'authenticated');
+
+CREATE POLICY wire_sizes_read ON wire_sizes
+  FOR SELECT USING (auth.role() = 'authenticated');
+
+CREATE POLICY expense_policies_read ON expense_policies
+  FOR SELECT USING (auth.role() = 'authenticated');
+
+-- Allow admin write access to reference tables
+CREATE POLICY equipment_types_admin ON equipment_types
+  FOR ALL USING (is_admin());
+
+CREATE POLICY hazard_categories_admin ON hazard_categories
+  FOR ALL USING (is_admin());
+
+CREATE POLICY wire_sizes_admin ON wire_sizes
+  FOR ALL USING (is_admin());
+
+CREATE POLICY expense_policies_admin ON expense_policies
+  FOR ALL USING (is_admin());
 ```
 
 ---

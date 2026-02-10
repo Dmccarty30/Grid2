@@ -1,31 +1,31 @@
 -- Grid Electric Services - Seed Data
 
 -- Wire Sizes (24 standard sizes)
-INSERT INTO wire_sizes (size_code, size_name, category, typical_use, ampacity) VALUES
-('AWG14', '14 AWG', 'AWG', 'Residential lighting circuits', 15),
-('AWG12', '12 AWG', 'AWG', 'Residential outlet circuits', 20),
-('AWG10', '10 AWG', 'AWG', 'Large appliances', 30),
-('AWG8', '8 AWG', 'AWG', 'Large appliances', 40),
-('AWG6', '6 AWG', 'AWG', 'Sub-panels', 55),
-('AWG4', '4 AWG', 'AWG', 'Sub-panels', 70),
-('AWG3', '3 AWG', 'AWG', 'Service entrances', 85),
-('AWG2', '2 AWG', 'AWG', 'Service entrances', 95),
-('AWG1', '1 AWG', 'AWG', 'Large service entrances', 110),
-('AWG1/0', '1/0 AWG', 'AWG', 'Large service entrances', 125),
-('AWG2/0', '2/0 AWG', 'AWG', 'Industrial applications', 145),
-('AWG3/0', '3/0 AWG', 'AWG', 'Industrial applications', 165),
-('AWG4/0', '4/0 AWG', 'AWG', 'Industrial applications', 195),
-('kcmil250', '250 kcmil', 'kcmil', 'Transmission', 215),
-('kcmil300', '300 kcmil', 'kcmil', 'Transmission', 240),
-('kcmil350', '350 kcmil', 'kcmil', 'Transmission', 260),
-('kcmil400', '400 kcmil', 'kcmil', 'Transmission', 280),
-('kcmil500', '500 kcmil', 'kcmil', 'High voltage transmission', 320),
-('kcmil600', '600 kcmil', 'kcmil', 'High voltage transmission', 355),
-('kcmil700', '700 kcmil', 'kcmil', 'High voltage transmission', 385),
-('kcmil750', '750 kcmil', 'kcmil', 'High voltage transmission', 400),
-('kcmil800', '800 kcmil', 'kcmil', 'High voltage transmission', 410),
-('kcmil900', '900 kcmil', 'kcmil', 'High voltage transmission', 435),
-('kcmil1000', '1000 kcmil', 'kcmil', 'Extra high voltage', 455);
+INSERT INTO wire_sizes (size_code) VALUES
+('AWG14'),
+('AWG12'),
+('AWG10'),
+('AWG8'),
+('AWG6'),
+('AWG4'),
+('AWG3'),
+('AWG2'),
+('AWG1'),
+('AWG1/0'),
+('AWG2/0'),
+('AWG3/0'),
+('AWG4/0'),
+('kcmil250'),
+('kcmil300'),
+('kcmil350'),
+('kcmil400'),
+('kcmil500'),
+('kcmil600'),
+('kcmil700'),
+('kcmil750'),
+('kcmil800'),
+('kcmil900'),
+('kcmil1000');
 
 -- Equipment Types
 INSERT INTO equipment_types (category, equipment_name, equipment_code, voltage_rating, safe_approach_distance, damage_indicators) VALUES
