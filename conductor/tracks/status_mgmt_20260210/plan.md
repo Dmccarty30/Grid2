@@ -3,7 +3,7 @@
 This plan outlines the steps to implement the context-aware status management system, including the visual updater, history tracking, and state machine logic.
 
 ## Phase 1: Foundation & State Machine Logic
-- [x] Task: Define Status Transition Logic
+- [x] Task: Define Status Transition Logic [04086ff]
     - [x] Write unit tests for status transition validator (Skipped per user request)
     - [x] Implement `isValidTransition(current, next)` logic (Green Phase)
     - [x] Verify test coverage for transition logic (Skipped per user request)
