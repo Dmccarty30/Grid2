@@ -4,7 +4,13 @@
 /// <reference lib="es2020" />
 /// <reference lib="webworker" />
 
-const sw = self as ServiceWorkerGlobalScope;
+// Type definitions for Background Sync
+interface SyncEvent extends Event {
+  tag: string;
+  waitUntil(fn: Promise<void>): void;
+}
+
+const sw = self as unknown as ServiceWorkerGlobalScope;
 
 // Cache names with versioning
 const CACHE_NAMES = {
@@ -72,7 +78,7 @@ sw.addEventListener('activate', (event) => {
 // Helper: Check if URL is a static asset
 function isStaticAsset(url: URL): boolean {
   return STATIC_ASSETS.includes(url.pathname) ||
-         url.pathname.match(/\.(js|css|html|json|png|jpg|jpeg|svg|ico|woff2?)$/);
+         !!url.pathname.match(/\.(js|css|html|json|png|jpg|jpeg|svg|ico|woff2?)$/);
 }
 
 // Helper: Check if URL is an API request
@@ -84,7 +90,7 @@ function isAPIRequest(url: URL): boolean {
 // Helper: Check if request is for an image
 function isImageRequest(request: Request): boolean {
   return request.destination === 'image' ||
-         request.headers.get('accept')?.includes('image/');
+         !!request.headers.get('accept')?.includes('image/');
 }
 
 // Cache strategies
@@ -122,6 +128,7 @@ async function staleWhileRevalidate(request: Request, cacheName: string): Promis
     return networkResponse;
   }).catch((error) => {
     console.error('[SW] Network fetch failed for SWR:', error);
+    throw error;
   });
   
   if (cached) {
@@ -214,7 +221,7 @@ sw.addEventListener('fetch', (event) => {
 });
 
 // Background Sync for queued operations
-sw.addEventListener('sync', (event) => {
+sw.addEventListener('sync', ((event: SyncEvent) => {
   console.log('[SW] Background sync:', event.tag);
   
   if (event.tag === 'sync-time-entries') {
@@ -226,7 +233,7 @@ sw.addEventListener('sync', (event) => {
   } else if (event.tag === 'sync-expenses') {
     event.waitUntil(syncExpenses());
   }
-});
+}) as EventListener);
 
 // Sync functions (will be called by background sync)
 async function syncTimeEntries(): Promise<void> {

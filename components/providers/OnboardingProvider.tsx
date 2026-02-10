@@ -20,12 +20,18 @@ interface OnboardingData {
   state?: string;
   zipCode?: string;
 
+  // Credentials
+  licenseNumber?: string;
+  certifications?: string;
+  yearsExperience?: string;
+  specialties?: string;
+
   // Insurance
   insuranceFiles?: {
-    generalLiability?: File;
-    workersComp?: File;
-    autoInsurance?: File;
-    umbrella?: File;
+    generalLiability?: { file: File; coverage?: string; expirationDate?: string };
+    workersComp?: { file: File; coverage?: string; expirationDate?: string };
+    autoInsurance?: { file: File; coverage?: string; expirationDate?: string };
+    umbrella?: { file: File; coverage?: string; expirationDate?: string };
   };
 
   // Banking
@@ -43,6 +49,7 @@ interface OnboardingData {
 
   // Training
   trainingCompleted?: boolean;
+  trainingVideosCompleted?: boolean[];
 
   // Profile Photo
   profilePhoto?: File;

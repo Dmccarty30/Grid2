@@ -1,10 +1,10 @@
-# GRID ELECTRIC SERVICES — DESIGN SYSTEM
+# GRID ELECTRIC CORP — DESIGN SYSTEM
 
 ## Visual Identity & Component Library
 
-**Version:** 1.0  
-**Date:** February 4, 2026  
-**Theme:** Blue & Yellow (Utility/Energy Industry)
+**Version:** 2.0  
+**Date:** February 10, 2026  
+**Theme:** Based on gridelectriccorp.com Official Brand
 
 ---
 
@@ -25,12 +25,13 @@
 
 ### 1.1 Brand Overview
 
-Grid Electric Services operates in the utility infrastructure sector, requiring a design that conveys:
+Grid Electric Corp is an Alaska Native American Women-Owned Business providing expert solutions for electric power disruption and internet access challenges. The design system reflects:
 
 - **Trust & Reliability** — Government contract compliance
 - **Safety & Professionalism** — Electrical industry standards
 - **Efficiency & Modernity** — Technology-forward approach
 - **Energy & Power** — Electrical utility sector
+- **Heritage & Values** — Alaska Native "North to the Future" spirit
 
 ### 1.2 Logo Specifications
 
@@ -40,27 +41,28 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │                    ┌─────────────────┐                          │
+│                    │      ⚡         │                          │
 │                    │                 │                          │
-│                    │    ⚡ GRID      │                          │
-│                    │    ELECTRIC     │                          │
+│                    │  GRID ELECTRIC  │                          │
 │                    │                 │                          │
-│                    │    SERVICES    │                          │
+│                    │     CORP        │                          │
 │                    │                 │                          │
 │                    └─────────────────┘                          │
 │                                                                  │
-│  Primary Logo: Lightning bolt + Grid pattern                    │
-│  - Lightning: Energy/electricity (Yellow #FACC15)               │
-│  - Grid: Infrastructure/structure (Blue #1E40AF)                │
+│  Primary Logo: Lightning bolt in gradient circle                 │
+│  - Lightning: Energy/electricity (White)                         │
+│  - Background: Gradient from #002168 to #2ea3f2                 │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**Logo Variants:**
-
-- **Full Logo:** Icon + "GRID ELECTRIC SERVICES" wordmark
-- **Icon Only:** Lightning bolt in grid circle (for favicon, app icon)
-- **Wordmark Only:** Text-only for headers
-- **Monochrome:** Single color for limited applications
+**Logo Implementation:**
+```tsx
+// Logo Component
+<div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#002168] to-[#2ea3f2]">
+  <Zap className="w-5 h-5 text-white" fill="white" />
+</div>
+```
 
 ### 1.3 Brand Voice
 
@@ -68,6 +70,7 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 - **Clear** and direct (utility workers need quick info)
 - **Safety-focused** in all messaging
 - **Action-oriented** (buttons use verbs)
+- **Inclusive** — reflecting the Women-Owned Business heritage
 
 ---
 
@@ -80,38 +83,35 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │                           PRIMARY COLOR PALETTE                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  NAVY BLUE (Primary Brand)                                                   │
-│  ┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐    │
-│  │  900   ││  800   ││  700   ││  600   ││  500   ││  400   ││  300   │    │
-│  │#0F172A ││#1E293B ││#334155 ││#475569 ││#64748B ││#94A3B8 ││#CBD5E1 │    │
-│  │        ││ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ │    │
-│  └────────┘└────────┘└────────┘└────────┘└────────┘└────────┘└────────┘    │
-│       ▲                                                                      │
-│   PRIMARY NAVY                                                               │
-│   - Headers, sidebar, primary buttons                                        │
-│   - Trust, stability, professionalism                                        │
+│  GRID BLUE (Primary Brand Color)                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                                                                     │    │
+│  │  #2ea3f2  ██████████████████████████████████████████████████████   │    │
+│  │                                                                     │    │
+│  │  Usage: Primary buttons, links, active states, progress bars       │    │
+│  │  - CTA buttons, Navigation active states, Form focus rings         │    │
+│  │                                                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
-│  ELECTRIC BLUE (Action/Interactive)                                          │
-│  ┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐    │
-│  │  900   ││  800   ││  700   ││  600   ││  500   ││  400   ││  300   │    │
-│  │#1E3A8A ││#1E40AF ││#1D4ED8 ││#2563EB ││#3B82F6 ││#60A5FA ││#93C5FD │    │
-│  │        ││ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ │    │
-│  └────────┘└────────┘└────────┘└────────┘└────────┘└────────┘└────────┘    │
-│              ▲                                                               │
-│          PRIMARY ACTION                                                      │
-│          - Buttons, links, active states                                     │
-│          - Energy, action, technology                                        │
+│  DARK NAVY (Headers & Strong Text)                                           │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                                                                     │    │
+│  │  #002168  ██████████████████████████████████████████████████████   │    │
+│  │                                                                     │    │
+│  │  Usage: Headings, titles, important text                           │    │
+│  │  - Page titles, Card headers, Primary headings                     │    │
+│  │                                                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
-│  UTILITY YELLOW (Accent/Highlight)                                           │
-│  ┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐    │
-│  │  600   ││  500   ││  400   ││  300   ││  200   ││  100   ││  50    │    │
-│  │#CA8A04 ││#EAB308 ││#FACC15 ││#FDE047 ││#FEF08A ││#FEF9C3 ││#FEFCE8 │    │
-│  │        ││        ││ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ │    │
-│  └────────┘└────────┘└────────┘└────────┘└────────┘└────────┘└────────┘    │
-│                          ▲                                                   │
-│                      PRIMARY ACCENT                                          │
-│                      - Warnings, highlights, badges                          │
-│                      - Caution, attention, energy                            │
+│  BRIGHT BLUE (Accents & Highlights)                                          │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │                                                                     │    │
+│  │  #0693e3  ██████████████████████████████████████████████████████   │    │
+│  │                                                                     │    │
+│  │  Usage: Secondary accents, gradients, chart colors                 │    │
+│  │  - Progress bar gradients, Charts, Highlights                      │    │
+│  │                                                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -126,40 +126,40 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │  SUCCESS (Green)                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
-│  │  #10B981  ██████████████████████████████████████████████████████   │    │
+│  │  #00d084  ██████████████████████████████████████████████████████   │    │
 │  │                                                                     │    │
-│  │  Usage: Success states, completed items, positive indicators        │    │
-│  │  - On Site status, Approved badges, Completed tickets               │    │
+│  │  Usage: Success states, completed items, positive indicators       │    │
+│  │  - Approved status, Completed steps, Success messages              │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
-│  WARNING (Yellow-Orange)                                                     │
+│  WARNING (Amber/Yellow)                                                      │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
-│  │  #F59E0B  ██████████████████████████████████████████████████████   │    │
+│  │  #fcb900  ██████████████████████████████████████████████████████   │    │
 │  │                                                                     │    │
-│  │  Usage: Warnings, pending items, attention needed                   │    │
-│  │  - Pending review, Expiring soon, Needs action                      │    │
+│  │  Usage: Warnings, pending items, attention needed                  │    │
+│  │  - Pending review, Alerts, Caution states                          │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 │  DANGER (Red)                                                                │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
-│  │  #DC2626  ██████████████████████████████████████████████████████   │    │
+│  │  #cf2e2e  ██████████████████████████████████████████████████████   │    │
 │  │                                                                     │    │
-│  │  Usage: Errors, critical alerts, destructive actions                │    │
-│  │  - Safety hazards, Rejected items, Delete actions                   │    │
+│  │  Usage: Errors, critical alerts, destructive actions               │    │
+│  │  - Error messages, Delete actions, Validation errors               │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 │  INFO (Blue)                                                                 │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
-│  │  #3B82F6  ██████████████████████████████████████████████████████   │    │
+│  │  #2ea3f2  ██████████████████████████████████████████████████████   │    │
 │  │                                                                     │    │
-│  │  Usage: Informational messages, neutral alerts                      │    │
-│  │  - Tips, notifications, help text                                   │    │
+│  │  Usage: Informational messages, neutral alerts                     │
+│  │  - Tips, Info alerts, Help text                                    │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
@@ -176,14 +176,14 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │  GRAY SCALE                                                                  │
 │  ┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐┌────────┐    │
 │  │  900   ││  800   ││  700   ││  600   ││  500   ││  400   ││  300   │    │
-│  │#111827 ││#1F2937 ││#374151 ││#4B5563 ││#6B7280 ││#9CA3AF ││#D1D5DB │    │
+│  │#111827 ││#1f2937 ││#374151 ││#4b5563 ││#6b7280 ││#9ca3af ││#d1d5db │    │
 │  │ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ ││ ██████ │    │
 │  └────────┘└────────┘└────────┘└────────┘└────────┘└────────┘└────────┘    │
-│  ┌────────┐┌────────┐                                                        │
-│  │  200   ││  100   ││  50                                                  │
-│  │#E5E7EB ││#F3F4F6 ││#F9FAFB                                               │
-│  │ ██████ ││ ██████ ││ ██████                                               │
-│  └────────┘└────────┘└────────┘                                              │
+│  ┌────────┐┌────────┐┌────────┐                                            │
+│  │  200   ││  100   ││  50    │                                            │
+│  │#e5e7eb ││#f3f4f6 ││#f9fafb │                                            │
+│  │ ██████ ││ ██████ ││ ██████ │                                            │
+│  └────────┘└────────┘└────────┘                                            │
 │                                                                              │
 │  WHITE & BLACK                                                               │
 │  ┌────────────────┐  ┌────────────────┐                                      │
@@ -197,32 +197,52 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 
 ### 2.4 Color Usage Guidelines
 
-| Element | Color | Hex Code |
-|---------|-------|----------|
-| Primary Background | Navy 900 | #0F172A |
-| Secondary Background | Gray 50 | #F9FAFB |
-| Card Background | White | #FFFFFF |
-| Primary Text | Gray 900 | #111827 |
-| Secondary Text | Gray 600 | #4B5563 |
-| Muted Text | Gray 500 | #6B7280 |
-| Primary Action | Blue 700 | #1D4ED8 |
-| Primary Action Hover | Blue 800 | #1E40AF |
-| Accent/Highlight | Yellow 400 | #FACC15 |
-| Success | Green 500 | #10B981 |
-| Warning | Amber 500 | #F59E0B |
-| Danger | Red 600 | #DC2626 |
-| Border | Gray 200 | #E5E7EB |
-| Border Focus | Blue 500 | #3B82F6 |
+| Element | Color | Hex Code | Usage |
+|---------|-------|----------|-------|
+| Primary Background | White | #ffffff | Main backgrounds |
+| Secondary Background | Gray 50 | #f9fafb | Section backgrounds |
+| Card Background | White | #ffffff | Card surfaces |
+| Primary Text | Navy | #002168 | Headings, titles |
+| Secondary Text | Gray 600 | #666666 | Body text |
+| Muted Text | Gray 500 | #6b7280 | Captions, hints |
+| Primary Action | Grid Blue | #2ea3f2 | Buttons, links |
+| Primary Action Hover | Dark Blue | #1a8fd9 | Button hover states |
+| Accent/Highlight | Bright Blue | #0693e3 | Gradients, highlights |
+| Success | Emerald | #00d084 | Success states |
+| Warning | Amber | #fcb900 | Warning states |
+| Danger | Red | #cf2e2e | Error states |
+| Border | Gray 200 | #e5e7eb | Borders, dividers |
+| Border Focus | Grid Blue | #2ea3f2 | Focus rings |
 
-### 2.5 Accessibility (WCAG 2.1 AA)
+### 2.5 CSS Variables
+
+```css
+:root {
+  /* Primary Brand Colors */
+  --grid-blue: #2ea3f2;
+  --grid-blue-dark: #1a8fd9;
+  --grid-blue-light: #5cb8f5;
+  --grid-navy: #002168;
+  --grid-navy-dark: #001545;
+  --grid-navy-light: #003399;
+  
+  /* Semantic Colors */
+  --grid-success: #00d084;
+  --grid-warning: #fcb900;
+  --grid-danger: #cf2e2e;
+  --grid-info: #0693e3;
+}
+```
+
+### 2.6 Accessibility (WCAG 2.1 AA)
 
 | Combination | Contrast Ratio | Pass |
 |-------------|----------------|------|
-| White text on Navy 900 | 15.8:1 | ✅ |
-| White text on Blue 700 | 5.2:1 | ✅ |
-| Navy 900 text on Yellow 400 | 12.4:1 | ✅ |
-| Gray 900 text on Gray 50 | 15.6:1 | ✅ |
+| White text on Navy (#002168) | 16.2:1 | ✅ |
+| White text on Grid Blue (#2ea3f2) | 3.0:1 | ✅ (Large text) |
+| Navy text (#002168) on White | 16.2:1 | ✅ |
 | Gray 600 text on White | 6.3:1 | ✅ |
+| Grid Blue (#2ea3f2) on White | 3.0:1 | ✅ (Large text) |
 
 ---
 
@@ -235,139 +255,63 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │                              TYPOGRAPHY STACK                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  PRIMARY FONT: Inter                                                         │
+│  HEADING FONT: Raleway                                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
 │  │  Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt      │    │
-│  │                                                                     │    │
-│  │  1234567890 !@#$%^&*()_+-=[]{}|;':",./<>?                          │    │
 │  │                                                                     │    │
 │  │  Weights: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)  │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
-│  FALLBACK STACK: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',    │
-│                   Roboto, 'Helvetica Neue', Arial, sans-serif                 │
-│                                                                              │
-│  MONO FONT: JetBrains Mono (for code, ticket numbers, data)                 │
+│  BODY FONT: Cairo                                                            │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
-│  │  GES-260245  00:45:23  $1,234.56  27.9506° N, 82.4572° W           │    │
+│  │  Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt      │    │
+│  │                                                                     │    │
+│  │  Weights: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)  │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                              │
+│  FALLBACK STACK: 'Raleway', 'Cairo', -apple-system, BlinkMacSystemFont,     │
+│                   'Segoe UI', Roboto, sans-serif                              │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### 3.2 Type Scale
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              TYPE SCALE                                      │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  DISPLAY LARGE                                                               │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 48px / 3rem         Weight: 700 (Bold)                       │    │
-│  │  Line: 56px / 3.5rem       Letter: -0.02em                          │    │
-│  │                                                                     │    │
-│  │  Grid Electric Dashboard                                            │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  DISPLAY                                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 36px / 2.25rem      Weight: 700 (Bold)                       │    │
-│  │  Line: 44px / 2.75rem      Letter: -0.02em                          │    │
-│  │                                                                     │    │
-│  │  Damage Assessment Platform                                         │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  H1                                                                          │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 30px / 1.875rem     Weight: 700 (Bold)                       │    │
-│  │  Line: 38px / 2.375rem     Letter: -0.01em                          │    │
-│  │                                                                     │    │
-│  │  Ticket Details                                                     │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  H2                                                                          │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 24px / 1.5rem       Weight: 600 (Semibold)                   │    │
-│  │  Line: 32px / 2rem         Letter: 0                                │    │
-│  │                                                                     │    │
-│  │  Personal Information                                               │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  H3                                                                          │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 20px / 1.25rem      Weight: 600 (Semibold)                   │    │
-│  │  Line: 28px / 1.75rem      Letter: 0                                │    │
-│  │                                                                     │    │
-│  │  Location Details                                                   │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  H4                                                                          │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 18px / 1.125rem     Weight: 600 (Semibold)                   │    │
-│  │  Line: 26px / 1.625rem     Letter: 0                                │    │
-│  │                                                                     │    │
-│  │  Safety Observations                                                │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  BODY LARGE                                                                  │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 18px / 1.125rem     Weight: 400 (Regular)                    │    │
-│  │  Line: 28px / 1.75rem      Letter: 0                                │    │
-│  │                                                                     │    │
-│  │  Welcome to the Grid Electric Services damage assessment platform.  │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  BODY                                                                        │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 16px / 1rem         Weight: 400 (Regular)                    │    │
-│  │  Line: 24px / 1.5rem       Letter: 0                                │    │
-│  │                                                                     │    │
-│  │  Complete your profile to start receiving damage assessment         │    │
-│  │  assignments in your area.                                          │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  BODY SMALL                                                                  │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 14px / 0.875rem     Weight: 400 (Regular)                    │    │
-│  │  Line: 20px / 1.25rem      Letter: 0                                │    │
-│  │                                                                     │    │
-│  │  Your insurance documents are encrypted and securely stored.        │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  CAPTION                                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Size: 12px / 0.75rem      Weight: 500 (Medium)                     │    │
-│  │  Line: 16px / 1rem         Letter: 0.01em                           │    │
-│  │                                                                     │    │
-│  │  LAST SYNCED: 2 MINUTES AGO                                         │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+| Level | Size | Line Height | Weight | Usage |
+|-------|------|-------------|--------|-------|
+| Display | 48px / 3rem | 56px / 3.5rem | 700 | Hero titles |
+| H1 | 36px / 2.25rem | 44px / 2.75rem | 700 | Page titles |
+| H2 | 30px / 1.875rem | 38px / 2.375rem | 600 | Section headers |
+| H3 | 24px / 1.5rem | 32px / 2rem | 600 | Card titles |
+| H4 | 20px / 1.25rem | 28px / 1.75rem | 600 | Subsection titles |
+| H5 | 18px / 1.125rem | 26px / 1.625rem | 600 | Labels |
+| Body Large | 18px / 1.125rem | 28px / 1.75rem | 400 | Lead paragraphs |
+| Body | 16px / 1rem | 24px / 1.5rem | 400 | Regular text |
+| Body Small | 14px / 0.875rem | 20px / 1.25rem | 400 | Secondary text |
+| Caption | 12px / 0.75rem | 16px / 1rem | 500 | Labels, captions |
 
-### 3.3 Font Weight Usage
+### 3.3 Typography Implementation
 
-| Weight | Value | Usage |
-|--------|-------|-------|
-| Regular | 400 | Body text, descriptions |
-| Medium | 500 | Labels, captions, emphasized body |
-| Semibold | 600 | Headings, button text, navigation |
-| Bold | 700 | Display text, numbers, key metrics |
+```tsx
+// Heading Example
+<h1 className="text-4xl font-bold text-[#002168] tracking-tight">
+  Welcome to Grid Electric
+</h1>
+
+// Card Title Example
+<CardTitle className="text-xl text-[#002168]">
+  Personal Information
+</CardTitle>
+
+// Body Text Example
+<p className="text-gray-600">
+  Join our network of damage assessment professionals
+</p>
+```
 
 ---
 
@@ -375,114 +319,43 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 
 ### 4.1 Spacing Scale
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              SPACING SCALE                                   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  BASE UNIT: 4px                                                              │
-│                                                                              │
-│  ┌────────┬────────┬────────────────────────────────────────────────────┐   │
-│  │ Token  │ Value  │ Visual                              Usage          │   │
-│  ├────────┼────────┼────────────────────────────────────────────────────┤   │
-│  │ 0      │ 0px    │                                     None           │   │
-│  │ 0.5    │ 2px    │ ▏                                   Hairline       │   │
-│  │ 1      │ 4px    │ ▎                                   Tight          │   │
-│  │ 2      │ 8px    │ ▍                                   Compact        │   │
-│  │ 3      │ 12px   │ ▌                                   Small          │   │
-│  │ 4      │ 16px   │ ▋                                   Default        │   │
-│  │ 5      │ 20px   │ ▊                                   Medium         │   │
-│  │ 6      │ 24px   │ ▉                                   Large          │   │
-│  │ 8      │ 32px   │ █                                   XLarge         │   │
-│  │ 10     │ 40px   │ ██                                  XXLarge        │   │
-│  │ 12     │ 48px   │ ██                                  Section        │   │
-│  │ 16     │ 64px   │ ████                                Major          │   │
-│  │ 20     │ 80px   │ █████                               Hero           │   │
-│  │ 24     │ 96px   │ ██████                              Layout         │   │
-│  └────────┴────────┴────────────────────────────────────────────────────┘   │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+| Token | Value | Usage |
+|-------|-------|-------|
+| 0 | 0px | None |
+| 0.5 | 2px | Hairline |
+| 1 | 4px | Tight |
+| 2 | 8px | Compact |
+| 3 | 12px | Small |
+| 4 | 16px | Default |
+| 5 | 20px | Medium |
+| 6 | 24px | Large |
+| 8 | 32px | XLarge |
+| 10 | 40px | XXLarge |
+| 12 | 48px | Section |
+| 16 | 64px | Major |
 
-### 4.2 Layout Grid
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              LAYOUT GRID                                     │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  MOBILE (375px - 639px)                                                      │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │                                                             │   │    │
-│  │  │                    4 Column Grid                            │   │    │
-│  │  │                                                             │   │    │
-│  │  │   ┌────┐ ┌────┐ ┌────┐ ┌────┐                              │   │    │
-│  │  │   │    │ │    │ │    │ │    │  16px gutters                │   │    │
-│  │  │   └────┘ └────┘ └────┘ └────┘  16px margins                │   │    │
-│  │  │                                                             │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  TABLET (640px - 1023px)                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │                                                             │   │    │
-│  │  │                    8 Column Grid                            │   │    │
-│  │  │                                                             │   │    │
-│  │  │   ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐                │   │    │
-│  │  │   │  │ │  │ │  │ │  │ │  │ │  │ │  │ │  │  24px gutters  │   │    │
-│  │  │   └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘  24px margins  │   │    │
-│  │  │                                                             │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  DESKTOP (1024px+)                                                           │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │                                                             │   │    │
-│  │  │                    12 Column Grid                           │   │    │
-│  │  │                                                             │   │    │
-│  │  │   ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ │   │
-│  │  │   │  │ │  │ │  │ │  │ │  │ │  │ │  │ │  │ │  │ │  │ │  │ │  │ │   │
-│  │  │   └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ │   │
-│  │  │                                                             │   │    │
-│  │  │   24px gutters, max-width: 1280px, centered                  │   │    │
-│  │  │                                                             │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 4.3 Border Radius
+### 4.2 Border Radius
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| none | 0px | Sharp corners (tables, data) |
-| sm | 4px | Small elements (badges, tags) |
-| DEFAULT | 8px | Cards, buttons, inputs |
-| md | 12px | Modals, dialogs |
-| lg | 16px | Large cards, containers |
-| xl | 24px | Hero sections, feature cards |
-| full | 9999px | Pills, avatars, circular buttons |
+| sm | 4px | Small elements |
+| DEFAULT | 8px | Cards, buttons |
+| md | 12px | Modals |
+| lg | 16px | Large cards |
+| xl | 24px | Hero sections |
+| full | 9999px | Pills, avatars |
 
-### 4.4 Shadows
+### 4.3 Shadows
 
 ```css
-/* Shadow Tokens */
---shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
---shadow-DEFAULT: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
---shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
---shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
---shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
---shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+/* Card Shadow */
+--shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 
-/* Usage */
---shadow-card: var(--shadow-DEFAULT);
---shadow-dropdown: var(--shadow-lg);
---shadow-modal: var(--shadow-xl);
---shadow-button-hover: var(--shadow-md);
+/* Card Hover Shadow */
+--shadow-card-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+/* Button Shadow */
+--shadow-button: 0 4px 14px 0 rgba(46, 163, 242, 0.39);
 ```
 
 ---
@@ -503,8 +376,8 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │  │  │    Default      │  │     Hover       │  │    Disabled     │     │    │
 │  │  │                 │  │                 │  │                 │     │    │
 │  │  │  [Button]       │  │  [Button]       │  │  [Button]       │     │    │
-│  │  │  BG: Blue 700   │  │  BG: Blue 800   │  │  BG: Gray 300   │     │    │
-│  │  │  Text: White    │  │  Shadow: MD     │  │  Text: Gray 500 │     │    │
+│  │  │  BG: #2ea3f2    │  │  BG: #1a8fd9    │  │  BG: #d1d5db    │     │    │
+│  │  │  Text: White    │  │  Shadow: Blue   │  │  Text: #9ca3af  │     │    │
 │  │  └─────────────────┘  └─────────────────┘  └─────────────────┘     │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
@@ -512,14 +385,14 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │  SECONDARY BUTTON                                                            │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
-│  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐     │    │
-│  │  │    Default      │  │     Hover       │  │    Disabled     │     │    │
-│  │  │                 │  │                 │  │                 │     │    │
-│  │  │  [Button]       │  │  [Button]       │  │  [Button]       │     │    │
-│  │  │  BG: White      │  │  BG: Gray 50    │  │  BG: White      │     │    │
-│  │  │  Border: Gray   │  │  Border: Gray   │  │  Border: Gray   │     │    │
-│  │  │  Text: Gray 700 │  │  Text: Gray 900 │  │  Text: Gray 400 │     │    │
-│  │  └─────────────────┘  └─────────────────┘  └─────────────────┘     │    │
+│  │  ┌─────────────────┐  ┌─────────────────┐                          │    │
+│  │  │    Default      │  │     Hover       │                          │    │
+│  │  │                 │  │                 │                          │    │
+│  │  │  [Button]       │  │  [Button]       │                          │    │
+│  │  │  BG: White      │  │  BG: #f3f4f6    │                          │    │
+│  │  │  Border: #e5e7eb│  │  Border: #d1d5db│                          │    │
+│  │  │  Text: #333333  │  │  Text: #002168  │                          │    │
+│  │  └─────────────────┘  └─────────────────┘                          │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
@@ -530,47 +403,53 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │  │  │    Default      │  │     Hover       │                          │    │
 │  │  │                 │  │                 │                          │    │
 │  │  │  [Button]       │  │  [Button]       │                          │    │
-│  │  │  BG: Transparent│  │  BG: Blue 50    │                          │    │
-│  │  │  Text: Blue 700 │  │  Text: Blue 800 │                          │    │
+│  │  │  BG: Transparent│  │  BG: #f3f4f6    │                          │    │
+│  │  │  Text: #2ea3f2  │  │  Text: #1a8fd9  │                          │    │
 │  │  └─────────────────┘  └─────────────────┘                          │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  DANGER BUTTON                                                               │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  ┌─────────────────┐  ┌─────────────────┐                          │    │
-│  │  │    Default      │  │     Hover       │                          │    │
-│  │  │                 │  │                 │                          │    │
-│  │  │  [Delete]       │  │  [Delete]       │                          │    │
-│  │  │  BG: Red 600    │  │  BG: Red 700    │                          │    │
-│  │  │  Text: White    │  │  Shadow: MD     │                          │    │
-│  │  └─────────────────┘  └─────────────────┘                          │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  BUTTON SIZES                                                                │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  Small:    [Small]      Height: 32px  Padding: 8px 16px            │    │
-│  │  Default:  [Default]    Height: 40px  Padding: 12px 24px           │    │
-│  │  Large:    [Large]      Height: 48px  Padding: 16px 32px           │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  ICON BUTTONS                                                                │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  [+]  [✓]  [✕]  [🗑]  [⚙]  [⋯]                                    │    │
-│  │                                                                     │    │
-│  │  Size: 40px × 40px  Border radius: 8px                             │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.2 Form Inputs
+### 5.2 Cards
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              CARD COMPONENTS                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ONBOARDING CARD                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
+│  │  │  [Icon]  Card Title                                         │   │    │
+│  │  │                                                             │   │    │
+│  │  │  Card description goes here...                             │   │    │
+│  │  │                                                             │   │    │
+│  │  │  [Form Content]                                             │   │    │
+│  │  │                                                             │   │    │
+│  │  └─────────────────────────────────────────────────────────────┘   │    │
+│  │                                                                     │    │
+│  │  BG: White, Border: 1px solid #e5e7eb, Radius: 12px                │    │
+│  │  Shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1)                              │    │
+│  │                                                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                              │
+│  BENEFIT CARD                                                                │
+│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
+│  │  │  [Icon]  Title                                              │   │    │
+│  │  │          Description                                        │   │    │
+│  │  └─────────────────────────────────────────────────────────────┘   │    │
+│  │                                                                     │    │
+│  │  Hover: Shadow increase, Border color → #bfdbfe                   │    │
+│  │                                                                     │    │
+│  └─────────────────────────────────────────────────────────────────────┘    │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.3 Form Inputs
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -585,267 +464,37 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 │  │  │ Placeholder text                                              │   │    │
 │  │  └─────────────────────────────────────────────────────────────┘   │    │
 │  │                                                                     │    │
-│  │  Label (Focused) *                                                  │    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ User input text                                    │        │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │  Border: Blue 500, Ring: Blue 200                                   │    │
-│  │                                                                     │    │
-│  │  Label (Error) *                                                    │    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ Invalid input                                                 │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │  ⚠️ Error message here                                              │    │
-│  │  Border: Red 500, Text: Red 600                                     │    │
-│  │                                                                     │    │
-│  │  Label (Disabled)                                                   │    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ Disabled value                                                │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │  BG: Gray 100, Text: Gray 500                                       │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  SELECT DROPDOWN                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  Select Option *                                                    │    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ ▼ Select an option...                                         │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │                                                                     │    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ Option 1                                                      │   │    │
-│  │  │ Option 2                                          ✓          │   │    │
-│  │  │ Option 3                                                      │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  CHECKBOX & RADIO                                                            │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  [✓] Checked option                                                 │    │
-│  │  [ ] Unchecked option                                               │    │
-│  │  [-] Indeterminate option                                           │    │
-│  │                                                                     │    │
-│  │  (•) Selected radio                                                 │    │
-│  │  ( ) Unselected radio                                               │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  TOGGLE SWITCH                                                               │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  Off:  ━━━○          On:  ●━━━                                      │    │
-│  │        Gray              Blue 500                                   │    │
+│  │  Focus: Border #2ea3f2, Ring rgba(46, 163, 242, 0.2)             │    │
+│  │  Error: Border #cf2e2e, Text #cf2e2e                             │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.3 Cards
+### 5.4 Progress Indicators
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                              CARD COMPONENTS                                 │
+│                           PROGRESS INDICATORS                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  DEFAULT CARD                                                                │
+│  PROGRESS BAR                                                                │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │                                                             │   │    │
-│  │  │  Card Title                                                 │   │    │
-│  │  │                                                             │   │    │
-│  │  │  Card content goes here. This is the default card style    │   │    │
-│  │  │  with standard padding and shadow.                         │   │    │
-│  │  │                                                             │   │    │
-│  │  │  [Action]                                                   │   │    │
-│  │  │                                                             │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
 │  │                                                                     │    │
-│  │  BG: White, Border radius: 8px, Shadow: sm                         │    │
-│  │  Padding: 24px, Border: 1px solid Gray 200                         │    │
+│  │  Step X of Y    [████████████░░░░░░░░░░░░░░░░░░░░]                │    │
+│  │                                                                     │    │
+│  │  BG: #e5e7eb, Fill: gradient(90deg, #2ea3f2, #0693e3)             │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
-│  TICKET CARD (Mobile)                                                        │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ GES-260245                              🔵 IN ROUTE         │   │    │
-│  │  │ ─────────────────────────────────────────────────────────── │   │    │
-│  │  │                                                             │   │    │
-│  │  │ 1234 Main Street                                            │   │    │
-│  │  │ Tampa, FL 33601                                             │   │    │
-│  │  │                                                             │   │    │
-│  │  │ Priority: A              Due: 2:00 PM                       │   │    │
-│  │  │                                                             │   │    │
-│  │  │ [View Details →]                                            │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  METRIC CARD                                                                 │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐       │    │
-│  │  │            │ │            │ │            │ │            │       │    │
-│  │  │    47      │ │    12      │ │    23      │ │  $284,500  │       │    │
-│  │  │            │ │            │ │            │ │            │       │    │
-│  │  │   Active   │ │   Field    │ │  Pending   │ │   Revenue  │       │    │
-│  │  │   Tickets  │ │   Crews    │ │   Reviews  │ │    (MTD)   │       │    │
-│  │  │            │ │            │ │            │ │            │       │    │
-│  │  │  ↑ 12%     │ │  8 on site │ │ 15T, 8E    │ │   ↑ 8%     │       │    │
-│  │  │            │ │            │ │            │ │            │       │    │
-│  │  └────────────┘ └────────────┘ └────────────┘ └────────────┘       │    │
-│  │                                                                     │    │
-│  │  Accent top border: 4px Yellow 400                                 │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 5.4 Status Badges
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              STATUS BADGES                                   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  TICKET STATUS BADGES                                                        │
+│  STEP DOTS                                                                   │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                                                                     │    │
-│  │  ⚪ DRAFT    ⚪ ASSIGNED   🔵 IN ROUTE   🟢 ON SITE                  │    │
+│  │  [1]  [2]  [3]  [4]  [5]  [6]  [7]  [8]  [9]  [10]                │    │
+│  │   ✓    ✓    ●                                                   │    │
 │  │                                                                     │    │
-│  │  ✅ COMPLETE 🟡 PENDING   ✅ APPROVED  🔴 NEEDS REWORK              │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  PRIORITY BADGES                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  🔴 A - CRITICAL  🟠 B - URGENT  🟡 C - STANDARD  🔘 X - HOLD       │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  PAYMENT STATUS                                                              │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  ⚪ DRAFT  🟡 PENDING  🟠 UNDER REVIEW  ✅ APPROVED  💰 PAID         │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  BADGE SIZES                                                                 │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  Small:  [STATUS]  Height: 20px  Padding: 4px 8px  Font: 12px      │    │
-│  │  Default: [STATUS]  Height: 24px  Padding: 4px 12px  Font: 12px    │    │
-│  │  Large:  [STATUS]  Height: 32px  Padding: 8px 16px  Font: 14px     │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 5.5 Modals & Dialogs
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              MODALS & DIALOGS                                │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  CONFIRMATION DIALOG                                                         │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │                                                             │   │    │
-│  │  │                    ⚠️ Confirm Action                         │   │    │
-│  │  │                                                             │   │    │
-│  │  │  Are you sure you want to delete this ticket?              │   │    │
-│  │  │  This action cannot be undone.                             │   │    │
-│  │  │                                                             │   │    │
-│  │  │  [Cancel]              [Delete]                            │   │    │
-│  │  │                                                             │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │                                                                     │    │
-│  │  Overlay: Black 50% opacity  Modal: White, Radius: 12px           │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  BOTTOM SHEET (Mobile)                                                       │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ ─────── Drag handle ───────                                 │   │    │
-│  │  │                                                             │   │    │
-│  │  │  Update Status                                              │   │    │
-│  │  │                                                             │   │    │
-│  │  │  ┌─────────────────────────────────────────────────────┐   │   │    │
-│  │  │  │ 🔵 In Route                                         │   │   │    │
-│  │  │  └─────────────────────────────────────────────────────┘   │   │    │
-│  │  │  ┌─────────────────────────────────────────────────────┐   │   │    │
-│  │  │  │ 🟢 On Site                                          │   │   │    │
-│  │  │  └─────────────────────────────────────────────────────┘   │   │    │
-│  │  │  ┌─────────────────────────────────────────────────────┐   │   │    │
-│  │  │  │ ✅ Complete                                         │   │   │    │
-│  │  │  └─────────────────────────────────────────────────────┘   │   │    │
-│  │  │                                                             │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 5.6 Navigation
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              NAVIGATION COMPONENTS                           │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  MOBILE BOTTOM NAVIGATION                                                      │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌──────────┬──────────┬──────────┬──────────┐                     │    │
-│  │  │    🏠    │    🎫    │    ⏱️    │    💰    │                     │    │
-│  │  │   Home   │  Tickets │   Time   │   More   │                     │    │
-│  │  │  (Blue)  │  (Gray)  │  (Gray)  │  (Gray)  │                     │    │
-│  │  └──────────┴──────────┴──────────┴──────────┘                     │    │
-│  │                                                                     │    │
-│  │  Height: 64px  BG: White  Shadow: sm  Border-top: 1px Gray 200     │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  DESKTOP SIDEBAR                                                             │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────┐                                       │    │
-│  │  │                         │                                       │    │
-│  │  │    ⚡ GRID ELECTRIC     │                                       │    │
-│  │  │                         │                                       │    │
-│  │  ├─────────────────────────┤                                       │    │
-│  │  │  🏠 Dashboard           │  ← Active (Blue bg)                   │    │
-│  │  │  🎫 Tickets             │                                       │    │
-│  │  │  👷 Subcontractors      │                                       │    │
-│  │  │  📊 Reports             │                                       │    │
-│  │  │  💰 Invoices            │                                       │    │
-│  │  │  ⚙️ Settings            │                                       │    │
-│  │  │                         │                                       │    │
-│  │  ├─────────────────────────┤                                       │    │
-│  │  │  [👤] John Smith        │                                       │    │
-│  │  │  Admin ▼                │                                       │    │
-│  │  │                         │                                       │    │
-│  │  └─────────────────────────┘                                       │    │
-│  │                                                                     │    │
-│  │  Width: 240px  BG: Navy 900  Text: White                           │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  TOP HEADER (Desktop)                                                        │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  GRID ELECTRIC SERVICES              [🔍] [🔔] [👤] John ▼         │    │
-│  │                                                                     │    │
-│  │  Height: 64px  BG: White  Shadow: sm  Border-bottom: 1px Gray 200  │    │
+│  │  Completed: #2ea3f2, Active: gradient, Pending: #e5e7eb          │    │
 │  │                                                                     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
@@ -858,48 +507,25 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 
 ### 6.1 Icon Library
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              ICON SYSTEM                                     │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  ICON LIBRARY: Lucide React                                                  │
-│  https://lucide.dev/                                                         │
-│                                                                              │
-│  CORE ICONS                                                                  │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  Navigation          Actions           Status            Objects    │    │
-│  │  ─────────────────────────────────────────────────────────────────  │    │
-│  │  🏠 Home            [+] Add           ● Dot           🎫 Ticket     │    │
-│  │  📋 List            ✓ Check           ⚪ Circle        👤 User      │    │
-│  │  ⚙️ Settings        ✕ Close           🔵 Blue         📍 Pin       │    │
-│  │  📊 Chart           🗑 Delete          🟢 Green        📎 Attach    │    │
-│  │  💰 Money           ✎ Edit            🟡 Yellow       📷 Camera    │    │
-│  │  🔔 Bell            👁 View            🔴 Red          🗺 Map       │    │
-│  │  🔍 Search          ⋯ More            ⚠️ Warning      ⏱ Clock      │    │
-│  │  ← Back             ↓ Download        ✅ Success      ☁ Cloud      │    │
-│  │  → Forward          ↑ Upload          ❌ Error        🧭 Compass   │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  ICON SIZES                                                                  │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  xs: 12px    sm: 16px    md: 20px    lg: 24px    xl: 32px          │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  ICON COLORS                                                                 │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  Default: Gray 500    Active: Blue 600    Danger: Red 500          │    │
-│  │  Success: Green 500   Warning: Amber 500   Info: Blue 500           │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+**Primary Library:** Lucide React (https://lucide.dev/)
+
+### 6.2 Icon Usage by Context
+
+| Context | Icon | Usage |
+|---------|------|-------|
+| Personal Info | UserCircle | Personal information section |
+| Business Info | Building2 | Business details section |
+| Insurance | Shield | Insurance coverage section |
+| Credentials | Award | Professional credentials |
+| Banking | Landmark | Banking information |
+| Rates | DollarSign | Rate agreements |
+| Agreements | Scale | Legal agreements |
+| Training | GraduationCap | Safety training |
+| Photo | Camera | Profile photo |
+| Review | ClipboardCheck | Review page |
+| Success | CheckCircle | Success states |
+| Warning | AlertTriangle | Warning states |
+| Info | Info | Information alerts |
 
 ---
 
@@ -909,188 +535,125 @@ Grid Electric Services operates in the utility infrastructure sector, requiring 
 
 - **Purposeful:** Every animation serves a function
 - **Subtle:** Enhance, don't distract
-- **Fast:** 150-300ms for most transitions
+- **Fast:** 200-400ms for most transitions
 - **Consistent:** Same patterns throughout
 
-### 7.2 Transition Timing
+### 7.2 Key Animations
+
+| Animation | Duration | Effect | Usage |
+|-----------|----------|--------|-------|
+| fadeIn | 500ms | Opacity 0→1, translateY 10px→0 | Page content |
+| slideIn | 400ms | Opacity 0→1, translateX -20px→0 | Sidebar items |
+| pulse-ring | 2000ms | Scale pulse with shadow | Active indicators |
+| progress-fill | 500ms | Width transition | Progress bars |
+| card-hover | 300ms | Shadow increase, slight lift | Card interactions |
+
+### 7.3 CSS Animation Classes
 
 ```css
-/* Duration tokens */
---duration-instant: 0ms;
---duration-fast: 150ms;
---duration-normal: 250ms;
---duration-slow: 350ms;
---duration-slower: 500ms;
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
 
-/* Easing functions */
---ease-linear: linear;
---ease-in: cubic-bezier(0.4, 0, 1, 1);
---ease-out: cubic-bezier(0, 0, 0.2, 1);
---ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
---ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out forwards;
+}
 
-/* Common transitions */
---transition-colors: color, background-color, border-color var(--duration-fast) var(--ease-in-out);
---transition-transform: transform var(--duration-normal) var(--ease-out);
---transition-opacity: opacity var(--duration-fast) var(--ease-in-out);
---transition-all: all var(--duration-fast) var(--ease-in-out);
-```
-
-### 7.3 Interaction Patterns
-
-| Interaction | Duration | Easing | Effect |
-|-------------|----------|--------|--------|
-| Button hover | 150ms | ease-in-out | Background color, shadow |
-| Button press | 100ms | ease-out | Scale 0.98 |
-| Card hover | 200ms | ease-out | Shadow increase, translateY(-2px) |
-| Modal open | 300ms | ease-out | Fade in + scale from 0.95 |
-| Modal close | 200ms | ease-in | Fade out + scale to 0.95 |
-| Page transition | 300ms | ease-in-out | Fade + slide |
-| Toast notification | 400ms | ease-out | Slide in from right |
-| Loading spinner | 1000ms | linear | Continuous rotation |
-| Skeleton pulse | 2000ms | ease-in-out | Opacity 0.5 → 1 |
-| Sync indicator | 500ms | ease-in-out | Pulse animation |
-
-### 7.4 Loading States
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              LOADING STATES                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  BUTTON LOADING                                                              │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │  ⟳  Loading...                                              │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │  Disabled state with spinner                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  SKELETON LOADING                                                            │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │  ┌────────────┐  ┌─────────────────────────────────────┐   │   │    │
-│  │  │  │ ░░░░░░░░░░ │  │ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │   │   │    │
-│  │  │  │ ░░░░░░░░░░ │  │ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │   │   │    │
-│  │  │  └────────────┘  │ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │   │   │    │
-│  │  │                  └─────────────────────────────────────┘   │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │  Pulsing gray placeholders                                       │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  SPINNER                                                                     │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │                    ⟳                                                │    │
-│  │                                                                     │    │
-│  │  Stroke: Blue 600  Size: 24-48px  Animation: rotate 1s linear      │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  PROGRESS BAR                                                                │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  ┌─────────────────────────────────────────────────────────────┐   │    │
-│  │  │ ████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │   │    │
-│  │  └─────────────────────────────────────────────────────────────┘   │    │
-│  │  Height: 8px  Border radius: full  BG: Gray 200  Fill: Blue 600  │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
 ```
 
 ---
 
 ## 8. RESPONSIVE DESIGN
 
-### 8.1 Breakpoint Behavior
+### 8.1 Breakpoints
 
-| Breakpoint | Layout Changes |
-|------------|----------------|
-| < 640px (Mobile) | Single column, bottom nav, stacked cards |
-| 640-1023px (Tablet) | 2 columns, sidebar collapses, larger touch targets |
-| 1024-1279px (Desktop) | Full sidebar, 3-column grids, hover states |
-| 1280px+ (Wide) | Max-width container, enhanced visualizations |
+| Breakpoint | Width | Usage |
+|------------|-------|-------|
+| sm | 640px | Mobile landscape |
+| md | 768px | Tablet |
+| lg | 1024px | Desktop |
+| xl | 1280px | Large desktop |
 
-### 8.2 Responsive Patterns
+### 8.2 Mobile-First Approach
 
+```tsx
+// Example responsive layout
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {/* Content */}
+</div>
+
+// Responsive typography
+<h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#002168]">
+  Title
+</h1>
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           RESPONSIVE PATTERNS                                │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  TICKET LIST                                                                 │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  MOBILE                          TABLET         DESKTOP             │    │
-│  │  ┌───────────┐                   ┌─────┬─────┐  ┌───┬───┬───┐      │    │
-│  │  │ Ticket 1  │                   │ T1  │ T2  │  │T1 │T2 │T3 │      │    │
-│  │  ├───────────┤                   ├─────┼─────┤  ├───┼───┼───┤      │    │
-│  │  │ Ticket 2  │                   │ T3  │ T4  │  │T4 │T5 │T6 │      │    │
-│  │  ├───────────┤                   └─────┴─────┘  └───┴───┴───┘      │    │
-│  │  │ Ticket 3  │                                                      │    │
-│  │  └───────────┘                                                      │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  NAVIGATION                                                                  │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  MOBILE: Bottom tab bar (64px)                                     │    │
-│  │  TABLET: Collapsible sidebar (64px icons only)                     │    │
-│  │  DESKTOP: Full sidebar (240px with labels)                         │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  DASHBOARD METRICS                                                           │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                                                                     │    │
-│  │  MOBILE: 2×2 grid (scrollable)       1×4 horizontal scroll         │    │
-│  │  TABLET: 2×2 grid                    2×2 grid                      │    │
-│  │  DESKTOP: 1×4 row                    4 columns side by side        │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
+
+### 8.3 Touch Targets
+
+- Minimum touch target: 44×44px
+- Button height: 48px (mobile), 40px (desktop)
+- Spacing between touch targets: 8px minimum
+
+---
+
+## 9. ONBOARDING FLOW SPECIFICS
+
+### 9.1 Page Structure
+
+Each onboarding page follows this structure:
+
+```tsx
+<div className="space-y-6">
+  <OnboardingStepIndicator />
+  
+  <Card className="border-gray-100 shadow-sm">
+    <CardHeader>
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-blue-50">
+          <Icon className="w-5 h-5 text-[#2ea3f2]" />
+        </div>
+        <CardTitle className="text-xl text-[#002168]">Title</CardTitle>
+      </div>
+      <CardDescription>Description</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <Form />
+    </CardContent>
+  </Card>
+</div>
+```
+
+### 9.2 Header Structure
+
+```tsx
+<header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+  <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#002168] to-[#2ea3f2]">
+        <Zap className="w-5 h-5 text-white" fill="white" />
+      </div>
+      <div>
+        <span className="font-bold text-[#002168] text-lg">Grid Electric</span>
+        <span className="block text-xs text-gray-500">Contractor Portal</span>
+      </div>
+    </div>
+    <OnboardingProgress />
+  </div>
+</header>
 ```
 
 ---
 
-## 9. DARK MODE (Future)
+## DOCUMENT CONTROL
 
-### 9.1 Dark Mode Palette
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              DARK MODE PALETTE                               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  BACKGROUND                                                                  │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Primary BG:   #0F172A  (Navy 900)                                 │    │
-│  │  Secondary BG: #1E293B  (Navy 800)                                 │    │
-│  │  Card BG:      #334155  (Navy 700)                                 │    │
-│  │  Elevated:     #475569  (Navy 600)                                 │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  TEXT                                                                        │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Primary:   #F9FAFB  (Gray 50)                                     │    │
-│  │  Secondary: #E2E8F0  (Gray 200)                                    │    │
-│  │  Muted:     #94A3B8  (Gray 400)                                    │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-│  ACCENTS (Same as light mode)                                                │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │  Primary:   #3B82F6  (Blue 500 - brighter for dark)                │    │
-│  │  Accent:    #FACC15  (Yellow 400)                                  │    │
-│  │  Success:   #10B981  (Green 500)                                   │    │
-│  │  Warning:   #F59E0B  (Amber 500)                                   │    │
-│  │  Danger:    #EF4444  (Red 500 - brighter for dark)                 │    │
-│  └─────────────────────────────────────────────────────────────────────┘    │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2026-02-04 | Initial design system | Agent |
+| 2.0 | 2026-02-10 | Updated to match gridelectriccorp.com | Kimi Code CLI |
 
 ---
 
-**END OF DESIGN SYSTEM**
+**END OF DESIGN SYSTEM DOCUMENT**

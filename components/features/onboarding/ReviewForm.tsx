@@ -36,7 +36,7 @@ export function ReviewForm() {
     { id: 1, title: 'Personal Information', step: 1, data: `${data.firstName} ${data.lastName}` },
     { id: 2, title: 'Business Information', step: 2, data: data.businessType },
     { id: 3, title: 'Insurance', step: 3, data: 'Documents uploaded' },
-    { id: 4, title: 'Credentials', step: 4, data: `${data.credentials?.length || 0} credentials` },
+    { id: 4, title: 'Credentials', step: 4, data: data.licenseNumber ? `License: ${data.licenseNumber}` : 'No license provided' },
     { id: 5, title: 'Banking', step: 5, data: data.accountHolderName },
     { id: 6, title: 'Rates', step: 6, data: data.ratesAgreed ? 'Agreed' : 'Pending' },
     { id: 7, title: 'Agreements', step: 7, data: data.agreementsSigned ? 'Signed' : 'Pending' },

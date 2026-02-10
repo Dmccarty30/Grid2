@@ -4,25 +4,32 @@ import { InsuranceUploadForm } from '@/components/features/onboarding/InsuranceU
 import { OnboardingStepIndicator } from '@/components/features/onboarding/OnboardingProgress';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Shield } from 'lucide-react';
+import { Shield, Info } from 'lucide-react';
 
 export default function InsurancePage() {
   return (
     <div className="space-y-6">
       <OnboardingStepIndicator />
       
-      <Card>
-        <CardHeader>
-          <CardTitle>Insurance Coverage</CardTitle>
-          <CardDescription>
-            Upload your current insurance certificates. All contractors must maintain active coverage.
+      <Card className="border-gray-100 shadow-sm">
+        <CardHeader className="space-y-1">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+              <Shield className="w-5 h-5 text-[#2ea3f2]" />
+            </div>
+            <div>
+              <CardTitle className="text-xl text-[#002168]">Insurance Coverage</CardTitle>
+            </div>
+          </div>
+          <CardDescription className="text-gray-500">
+            Upload your insurance certificates. All contractors must maintain proper coverage.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <Alert>
-            <Shield className="h-4 w-4" />
-            <AlertDescription>
-              Minimum required coverage: General Liability ($1M), Workers Comp (if applicable), Auto Liability ($1M)
+          <Alert className="bg-blue-50 border-blue-100">
+            <Info className="h-4 w-4 text-[#2ea3f2]" />
+            <AlertDescription className="text-gray-600">
+              Your insurance documents are encrypted and securely stored. We verify coverage before approving your account.
             </AlertDescription>
           </Alert>
           
