@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -16,10 +15,7 @@ import { useAuthStore } from '@/stores/authStore';
 import { StatusUpdater } from '@/components/features/tickets/StatusUpdater';
 import { StatusHistoryTimeline } from '@/components/features/tickets/StatusHistoryTimeline';
 
-// This is a placeholder for the detail view. 
-// In a real app, we'd have more sections like comments, history, photos, etc.
-
-export default function TicketDetailPage() {
+export default function SubcontractorTicketDetailPage() {
     const params = useParams();
     const { user } = useAuthStore();
     const [ticket, setTicket] = useState<Ticket | null>(null);
@@ -55,17 +51,12 @@ export default function TicketDetailPage() {
         return notFound();
     }
 
-    const userRole =
-        user?.role === 'ADMIN' || user?.role === 'SUPER_ADMIN' || user?.role === 'TEAM_LEAD'
-            ? 'admin'
-            : 'subcontractor';
-
     return (
         <div className="space-y-6">
             <PageHeader
                 title={`Ticket ${ticket.ticket_number}`}
                 description={ticket.utility_client}
-                backHref="/tickets"
+                backHref="/subcontractor/dashboard"
                 showBackButton={true}
             >
                 <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
@@ -108,12 +99,12 @@ export default function TicketDetailPage() {
                                 </CardHeader>
                                 <CardContent className="grid gap-4">
                                     <div>
-                                        <h4 className="font-semibold text-sm">Address</h4>
-                                        <p>{formatAddress(ticket.address, ticket.city ?? null, ticket.state ?? null, ticket.zip_code ?? null)}</p>
+                                        <h4 className="font-semibold text-sm text-muted-foreground">Address</h4>
+                                        <p className="text-lg">{formatAddress(ticket.address, ticket.city ?? null, ticket.state ?? null, ticket.zip_code ?? null)}</p>
                                     </div>
                                     {ticket.client_contact_name && (
                                         <div>
-                                            <h4 className="font-semibold text-sm">Client Contact</h4>
+                                            <h4 className="font-semibold text-sm text-muted-foreground">Client Contact</h4>
                                             <p>{ticket.client_contact_name} {ticket.client_contact_phone && `• ${ticket.client_contact_phone}`}</p>
                                         </div>
                                     )}
@@ -121,7 +112,12 @@ export default function TicketDetailPage() {
                             </Card>
                         </TabsContent>
                         <TabsContent value="assessments">
-                            <div className="text-muted-foreground p-4">No assessments yet.</div>
+                            <div className="text-muted-foreground p-4 text-center border-2 border-dashed rounded-lg">
+                                <p>No assessment submitted yet.</p>
+                                {ticket.status === 'ON_SITE' || ticket.status === 'IN_PROGRESS' || ticket.status === 'NEEDS_REWORK' ? (
+                                    <button className="mt-2 text-primary font-semibold">Start Assessment Form</button>
+                                ) : null}
+                            </div>
                         </TabsContent>
                         <TabsContent value="history">
                             <div className="mt-4">
@@ -134,19 +130,19 @@ export default function TicketDetailPage() {
                 <div className="space-y-6">
                     <Card>
                         <CardHeader>
-                            <CardTitle>Info</CardTitle>
+                            <CardTitle>Metadata</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div>
-                                <span className="text-sm font-medium text-muted-foreground">Assigned To</span>
-                                <p>{ticket.assigned_to ? 'Subcontractor Assigned' : 'Unassigned'}</p>
+                                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Assigned To</span>
+                                <p className="font-semibold">You</p>
                             </div>
                             <div>
-                                <span className="text-sm font-medium text-muted-foreground">Created</span>
+                                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Created</span>
                                 <p>{formatDate(ticket.created_at)}</p>
                             </div>
                             <div>
-                                <span className="text-sm font-medium text-muted-foreground">Geofence</span>
+                                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Geofence</span>
                                 <p>{ticket.geofence_radius_meters}m</p>
                             </div>
                         </CardContent>
