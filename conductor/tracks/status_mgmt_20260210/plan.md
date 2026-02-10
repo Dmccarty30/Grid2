@@ -7,10 +7,10 @@ This plan outlines the steps to implement the context-aware status management sy
     - [x] Write unit tests for status transition validator (Skipped per user request)
     - [x] Implement `isValidTransition(current, next)` logic (Green Phase)
     - [x] Verify test coverage for transition logic (Skipped per user request)
-- [ ] Task: Status History Service
-    - [ ] Write unit tests for status history persistence (Red Phase)
-    - [ ] Implement `logStatusChange` function in `ticketService.ts` (Green Phase)
-    - [ ] Verify test coverage for history logging
+- [x] Task: Status History Service
+    - [x] Write unit tests for status history persistence (Skipped per user request)
+    - [x] Implement `logStatusChange` function in `ticketService.ts` (Green Phase)
+    - [x] Verify test coverage for history logging (Skipped per user request)
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation' (Protocol in workflow.md)
 
 ## Phase 2: Context-Aware UI Components
