@@ -4,18 +4,18 @@ import { usePathname } from 'next/navigation';
 import { useOnboarding } from '@/components/providers/OnboardingProvider';
 
 const ONBOARDING_STEPS = [
-  { path: '/onboarding/welcome', label: 'Welcome', step: 0 },
-  { path: '/onboarding/personal-info', label: 'Personal', step: 1 },
-  { path: '/onboarding/business-info', label: 'Business', step: 2 },
-  { path: '/onboarding/insurance', label: 'Insurance', step: 3 },
-  { path: '/onboarding/credentials', label: 'Credentials', step: 4 },
-  { path: '/onboarding/banking', label: 'Banking', step: 5 },
-  { path: '/onboarding/rates', label: 'Rates', step: 6 },
-  { path: '/onboarding/agreements', label: 'Agreements', step: 7 },
-  { path: '/onboarding/training', label: 'Training', step: 8 },
-  { path: '/onboarding/profile-photo', label: 'Photo', step: 9 },
-  { path: '/onboarding/review', label: 'Review', step: 10 },
-  { path: '/onboarding/pending', label: 'Pending', step: 11 },
+  { path: '/welcome', label: 'Welcome', step: 0 },
+  { path: '/personal-info', label: 'Personal', step: 1 },
+  { path: '/business-info', label: 'Business', step: 2 },
+  { path: '/insurance', label: 'Insurance', step: 3 },
+  { path: '/credentials', label: 'Credentials', step: 4 },
+  { path: '/banking', label: 'Banking', step: 5 },
+  { path: '/rates', label: 'Rates', step: 6 },
+  { path: '/agreements', label: 'Agreements', step: 7 },
+  { path: '/training', label: 'Training', step: 8 },
+  { path: '/profile-photo', label: 'Photo', step: 9 },
+  { path: '/review', label: 'Review', step: 10 },
+  { path: '/pending', label: 'Pending', step: 11 },
 ];
 
 export function OnboardingProgress() {
@@ -23,7 +23,7 @@ export function OnboardingProgress() {
   const { currentStep, totalSteps } = useOnboarding();
 
   // Don't show progress on welcome or pending pages
-  if (pathname === '/onboarding/welcome' || pathname === '/onboarding/pending') {
+  if (pathname === '/welcome' || pathname === '/pending') {
     return null;
   }
 

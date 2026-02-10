@@ -43,7 +43,7 @@ const columns: Column<Subcontractor>[] = [
     key: 'name',
     header: 'Name',
     cell: (sub) => (
-      <Link 
+      <Link
         href={`/admin/subcontractors/${sub.id}`}
         className="font-medium text-blue-600 hover:text-blue-800"
       >
@@ -141,7 +141,7 @@ export default function SubcontractorsListPage() {
           title="Pending"
           value={pendingCount}
           icon={<UserX className="w-4 h-4 text-slate-600" />}
-          variant="neutral"
+          variant="default"
         />
         <MetricCard
           title="Expiring"

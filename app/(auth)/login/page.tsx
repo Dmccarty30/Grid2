@@ -45,7 +45,7 @@ export default function LoginPage() {
         <div className="text-center text-sm text-slate-500">
           Don&apos;t have an account?{' '}
           <Link 
-            href="/onboarding/welcome" 
+            href="/welcome" 
             className="text-blue-600 hover:text-blue-700 font-medium"
           >
             Get started

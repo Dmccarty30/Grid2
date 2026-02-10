@@ -86,26 +86,6 @@ CREATE TRIGGER expense_item_change_trigger
   AFTER INSERT OR UPDATE OR DELETE ON expense_items
   FOR EACH ROW EXECUTE FUNCTION update_expense_report_total();
 
--- Function to check credential expiration
-CREATE OR REPLACE FUNCTION check_credential_expiration()
-RETURNS TRIGGER AS $$
-BEGIN
-  IF NEW.expiration_date < CURRENT_DATE THEN
-    NEW.status := 'EXPIRED';
-  ELSIF NEW.expiration_date <= CURRENT_DATE + INTERVAL '30 days' THEN
-    NEW.status := 'EXPIRING_SOON';
-  ELSE
-    NEW.status := 'ACTIVE';
-  END IF;
-  
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER credential_expiration_trigger
-  BEFORE INSERT OR UPDATE ON subcontractor_credentials
-  FOR EACH ROW EXECUTE FUNCTION check_credential_expiration();
-
 -- Function to generate ticket number
 CREATE OR REPLACE FUNCTION generate_ticket_number()
 RETURNS TRIGGER AS $$

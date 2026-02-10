@@ -143,7 +143,7 @@ export default function WelcomePage() {
         <Button 
           size="lg" 
           className="w-full"
-          onClick={() => router.push('/onboarding/personal-info')}
+          onClick={() => router.push('/personal-info')}
         >
           Get Started
         </Button>

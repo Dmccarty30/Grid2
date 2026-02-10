@@ -9,7 +9,7 @@ interface OnboardingData {
   lastName?: string;
   email?: string;
   phone?: string;
-  
+
   // Business Info
   businessType?: string;
   businessName?: string;
@@ -19,7 +19,7 @@ interface OnboardingData {
   city?: string;
   state?: string;
   zipCode?: string;
-  
+
   // Insurance
   insuranceFiles?: {
     generalLiability?: File;
@@ -27,33 +27,23 @@ interface OnboardingData {
     autoInsurance?: File;
     umbrella?: File;
   };
-  
-  // Credentials
-  credentials?: Array<{
-    type: string;
-    name: string;
-    number: string;
-    issueDate: string;
-    expirationDate: string;
-    file?: File;
-  }>;
-  
+
   // Banking
   accountHolderName?: string;
   bankName?: string;
   accountType?: 'checking' | 'savings';
   routingNumber?: string;
   accountNumber?: string;
-  
+
   // Rates (agreed to default rates)
   ratesAgreed?: boolean;
-  
+
   // Agreements
   agreementsSigned?: boolean;
-  
+
   // Training
   trainingCompleted?: boolean;
-  
+
   // Profile Photo
   profilePhoto?: File;
 }
@@ -73,18 +63,17 @@ interface OnboardingContextType {
 const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined);
 
 const ONBOARDING_STEPS = [
-  '/onboarding/welcome',
-  '/onboarding/personal-info',
-  '/onboarding/business-info',
-  '/onboarding/insurance',
-  '/onboarding/credentials',
-  '/onboarding/banking',
-  '/onboarding/rates',
-  '/onboarding/agreements',
-  '/onboarding/training',
-  '/onboarding/profile-photo',
-  '/onboarding/review',
-  '/onboarding/pending',
+  '/welcome',
+  '/personal-info',
+  '/business-info',
+  '/insurance',
+  '/banking',
+  '/rates',
+  '/agreements',
+  '/training',
+  '/profile-photo',
+  '/review',
+  '/pending',
 ];
 
 export function OnboardingProvider({ children }: { children: ReactNode }) {
@@ -129,7 +118,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
     // In a real implementation, this would save to localStorage or IndexedDB
     // For now, we'll just log it
     console.log('Saving draft:', data);
-    
+
     // Could also save to Supabase if user is logged in
     // await supabase.from('onboarding_drafts').upsert({ ... })
   }, [data]);
@@ -137,9 +126,9 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
   const submitApplication = useCallback(async () => {
     // This would submit the complete onboarding data
     console.log('Submitting application:', data);
-    
+
     // Navigate to pending page
-    router.push('/onboarding/pending');
+    router.push('/pending');
   }, [data, router]);
 
   const value = {

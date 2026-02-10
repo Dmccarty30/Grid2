@@ -18,7 +18,7 @@ export default function TicketsPage() {
         <div className="space-y-6">
             <PageHeader
                 title={userRole === 'admin' ? 'Ticket Management' : 'My Tickets'}
-                description={userRole === 'admin' ? 'View and manage all service tickets.' : 'View your assigned service tickets.'}
+                description={userRole === 'admin' ? 'View and manage all service tickets.' : 'View and manage your assigned damage assessment tickets.'}
             />
             {user ? (
                 <TicketList userRole={userRole} userId={userRole === 'subcontractor' ? user.id : undefined} />

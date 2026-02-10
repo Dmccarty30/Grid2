@@ -138,19 +138,6 @@ CREATE POLICY equipment_assessments_own ON equipment_assessments
 CREATE POLICY equipment_assessments_admin ON equipment_assessments
   FOR ALL USING (is_admin());
 
--- Subcontractor Credentials RLS Policies
-CREATE POLICY credentials_own ON subcontractor_credentials
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM subcontractors s
-      WHERE subcontractor_credentials.subcontractor_id = s.id
-      AND s.profile_id = auth.uid()
-    )
-  );
-
-CREATE POLICY credentials_admin ON subcontractor_credentials
-  FOR ALL USING (is_admin());
-
 -- Subcontractor Rates RLS Policies
 CREATE POLICY rates_own ON subcontractor_rates
   FOR SELECT USING (

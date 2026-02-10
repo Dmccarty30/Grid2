@@ -23,7 +23,18 @@ const PUBLIC_ROUTES = [
   '/forgot-password',
   '/reset-password',
   '/magic-link',
-  '/onboarding',
+  '/welcome',
+  '/personal-info',
+  '/business-info',
+  '/insurance',
+  '/credentials',
+  '/banking',
+  '/rates',
+  '/agreements',
+  '/training',
+  '/profile-photo',
+  '/review',
+  '/pending',
 ];
 
 export function AuthProvider({ children }: { children: ReactNode }) {

@@ -81,11 +81,11 @@ export const ticketService = {
         // 3. Start transaction-like update
         // Note: Supabase doesn't support multi-table transactions in a simple client call, 
         // but we can use an Edge Function or just sequential calls for this MVP.
-        
+
         // Update ticket
-        const { error: updateError } = await supabase
-            .from('tickets')
-            .update({ 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { error: updateError } = await (supabase.from('tickets') as any)
+            .update({
                 status: newStatus,
                 updated_at: new Date().toISOString(),
                 updated_by: userId
@@ -111,8 +111,8 @@ export const ticketService = {
         changeReason?: string,
         location?: { latitude: number; longitude: number; accuracy: number }
     ) {
-        const { error } = await supabase
-            .from('ticket_status_history')
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { error } = await (supabase.from('ticket_status_history') as any)
             .insert([{
                 ticket_id: ticketId,
                 from_status: fromStatus,

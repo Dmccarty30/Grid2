@@ -81,7 +81,7 @@ export function TicketForm() {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             await ticketService.createTicket(data as any)
             toast.success("Ticket created successfully")
-            router.push("/admin/tickets")
+            router.push("/tickets")
             router.refresh()
         } catch (error) {
             toast.error("Failed to create ticket")

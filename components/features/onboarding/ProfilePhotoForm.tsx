@@ -38,7 +38,7 @@ export function ProfilePhotoForm() {
     if (!photo) return;
     setIsSubmitting(true);
     try {
-      updateData({ profilePhoto: photo });
+      updateData({ profilePhoto: photo || undefined });
       await saveDraft();
       nextStep();
     } finally {
@@ -49,7 +49,7 @@ export function ProfilePhotoForm() {
   const handleSaveDraft = async () => {
     setIsSaving(true);
     try {
-      updateData({ profilePhoto: photo });
+      updateData({ profilePhoto: photo || undefined });
       await saveDraft();
     } finally {
       setIsSaving(false);

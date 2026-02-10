@@ -83,55 +83,6 @@ CREATE INDEX idx_subcontractors_profile ON subcontractors(profile_id);
 CREATE INDEX idx_subcontractors_status ON subcontractors(onboarding_status);
 CREATE INDEX idx_subcontractors_eligible ON subcontractors(is_eligible_for_assignment);
 
--- Subcontractor Credentials
-CREATE TABLE subcontractor_credentials (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  subcontractor_id UUID NOT NULL REFERENCES subcontractors(id) ON DELETE CASCADE,
-  
-  -- Credential Type
-  credential_type VARCHAR(100) NOT NULL,
-  credential_name VARCHAR(255) NOT NULL,
-  
-  -- Details
-  issuer VARCHAR(255),
-  credential_number VARCHAR(100),
-  
-  -- Dates
-  issue_date DATE,
-  expiration_date DATE NOT NULL,
-  
-  -- Document
-  document_url TEXT,
-  
-  -- Verification
-  is_verified BOOLEAN DEFAULT false,
-  verified_by UUID REFERENCES profiles(id),
-  verified_at TIMESTAMPTZ,
-  verification_notes TEXT,
-  
-  -- Alerts
-  alert_sent_30d BOOLEAN DEFAULT false,
-  alert_sent_60d BOOLEAN DEFAULT false,
-  alert_sent_90d BOOLEAN DEFAULT false,
-  
-  -- Status
-  status VARCHAR(20) DEFAULT 'ACTIVE',
-  
-  -- Metadata
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW(),
-  created_by UUID REFERENCES profiles(id),
-  updated_by UUID REFERENCES profiles(id)
-);
-
--- Enable RLS
-ALTER TABLE subcontractor_credentials ENABLE ROW LEVEL SECURITY;
-
--- Indexes
-CREATE INDEX idx_credentials_subcontractor ON subcontractor_credentials(subcontractor_id);
-CREATE INDEX idx_credentials_type ON subcontractor_credentials(credential_type);
-CREATE INDEX idx_credentials_expiration ON subcontractor_credentials(expiration_date);
-
 -- Subcontractor Rates
 CREATE TABLE subcontractor_rates (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

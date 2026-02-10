@@ -143,7 +143,7 @@ export function TicketList({ userRole, userId }: TicketListProps) {
             cell: (ticket) => (
                 <div className="flex items-center gap-2">
                     <Button variant="ghost" size="sm" asChild>
-                        <Link href={`/${userRole === 'admin' ? '(admin)' : '(subcontractor)'}/tickets/${ticket.id}`}>
+                        <Link href={`/tickets/${ticket.id}`}>
                             View
                         </Link>
                     </Button>
@@ -170,8 +170,7 @@ export function TicketList({ userRole, userId }: TicketListProps) {
     ];
 
     const handleRowClick = (ticket: Ticket) => {
-        const basePath = userRole === 'admin' ? '/admin' : '/subcontractor';
-        router.push(`${basePath}/tickets/${ticket.id}`);
+        router.push(`/tickets/${ticket.id}`);
     };
 
     return (
