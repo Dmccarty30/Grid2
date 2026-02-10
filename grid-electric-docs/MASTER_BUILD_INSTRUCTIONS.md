@@ -42,7 +42,7 @@ This document serves as the **single source of truth** for building the Grid Ele
 
 - **Total Screens:** 52
 - **Total Database Tables:** 24
-- **User Roles:** 5 (Super Admin, Operations Manager, Field Subcontractor, Auditor, Read Only)
+- **User Roles:** 5 (Super Admin, Admin, Team Lead, Contractor, Read Only)
 - **Ticket Statuses:** 13 (full lifecycle)
 - **MVP Duration:** 16 weeks
 

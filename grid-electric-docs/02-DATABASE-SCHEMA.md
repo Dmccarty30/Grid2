@@ -96,9 +96,9 @@
 -- User Roles
 CREATE TYPE user_role AS ENUM (
   'SUPER_ADMIN',
-  'OPERATIONS_MANAGER',
-  'FIELD_SUBCONTRACTOR',
-  'AUDITOR',
+  'ADMIN',
+  'TEAM_LEAD',
+  'CONTRACTOR',
   'READ_ONLY'
 );
 
@@ -218,7 +218,7 @@ CREATE TABLE profiles (
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   phone VARCHAR(20),
-  role user_role NOT NULL DEFAULT 'FIELD_SUBCONTRACTOR',
+  role user_role NOT NULL DEFAULT 'CONTRACTOR',
   
   -- Status
   is_active BOOLEAN DEFAULT true,
@@ -1356,7 +1356,7 @@ CREATE POLICY profiles_select_own ON profiles
 CREATE POLICY profiles_select_admin ON profiles
   FOR SELECT USING (
     EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'OPERATIONS_MANAGER')
+      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
     )
   );
 
@@ -1385,7 +1385,7 @@ CREATE POLICY subcontractors_select_own ON subcontractors
 CREATE POLICY subcontractors_select_admin ON subcontractors
   FOR SELECT USING (
     EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'OPERATIONS_MANAGER')
+      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
     )
   );
 
@@ -1393,7 +1393,7 @@ CREATE POLICY subcontractors_select_admin ON subcontractors
 CREATE POLICY subcontractors_write_admin ON subcontractors
   FOR ALL USING (
     EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'OPERATIONS_MANAGER')
+      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
     )
   );
 ```
@@ -1413,7 +1413,7 @@ CREATE POLICY tickets_select_assigned ON tickets
 CREATE POLICY tickets_admin ON tickets
   FOR ALL USING (
     EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'OPERATIONS_MANAGER')
+      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
     )
   );
 
@@ -1446,7 +1446,7 @@ CREATE POLICY time_entries_own ON time_entries
 CREATE POLICY time_entries_admin ON time_entries
   FOR ALL USING (
     EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'OPERATIONS_MANAGER')
+      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
     )
   );
 ```
@@ -1466,7 +1466,7 @@ CREATE POLICY expense_reports_own ON expense_reports
 CREATE POLICY expense_reports_admin ON expense_reports
   FOR ALL USING (
     EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'OPERATIONS_MANAGER')
+      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
     )
   );
 ```
@@ -1492,7 +1492,7 @@ CREATE POLICY media_select_linked ON media_assets
 CREATE POLICY media_admin ON media_assets
   FOR ALL USING (
     EXISTS (
-      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'OPERATIONS_MANAGER')
+      SELECT 1 FROM profiles WHERE id = auth.uid() AND role IN ('SUPER_ADMIN', 'ADMIN')
     )
   );
 ```

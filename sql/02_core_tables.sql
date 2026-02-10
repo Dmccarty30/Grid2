@@ -7,7 +7,7 @@ CREATE TABLE profiles (
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   phone VARCHAR(20),
-  role user_role NOT NULL DEFAULT 'FIELD_SUBCONTRACTOR',
+  role user_role NOT NULL DEFAULT 'CONTRACTOR',
   
   -- Status
   is_active BOOLEAN DEFAULT true,

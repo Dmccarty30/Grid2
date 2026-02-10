@@ -71,7 +71,7 @@ Content-Type: application/json
   "user": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
     "email": "contractor@example.com",
-    "role": "FIELD_SUBCONTRACTOR",
+    "role": "CONTRACTOR",
     "aud": "authenticated"
   }
 }
@@ -96,7 +96,7 @@ Authorization: Bearer <token>
   "first_name": "John",
   "last_name": "Smith",
   "phone": "(555) 123-4567",
-  "role": "FIELD_SUBCONTRACTOR",
+  "role": "CONTRACTOR",
   "is_active": true,
   "last_login_at": "2026-02-04T09:30:00Z",
   "created_at": "2026-01-15T08:00:00Z",

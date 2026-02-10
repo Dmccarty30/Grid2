@@ -17,9 +17,9 @@ export interface User {
 
 export type UserRole = 
   | 'SUPER_ADMIN' 
-  | 'OPERATIONS_MANAGER' 
-  | 'FIELD_SUBCONTRACTOR' 
-  | 'AUDITOR' 
+  | 'ADMIN' 
+  | 'TEAM_LEAD' 
+  | 'CONTRACTOR' 
   | 'READ_ONLY';
 
 // Subcontractor Types

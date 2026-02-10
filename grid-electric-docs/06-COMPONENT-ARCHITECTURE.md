@@ -1346,9 +1346,9 @@ export type SyncStatus = 'SYNCED' | 'PENDING' | 'FAILED' | 'CONFLICT';
 
 export type UserRole = 
   | 'SUPER_ADMIN' 
-  | 'OPERATIONS_MANAGER' 
-  | 'FIELD_SUBCONTRACTOR' 
-  | 'AUDITOR' 
+  | 'ADMIN' 
+  | 'TEAM_LEAD' 
+  | 'CONTRACTOR' 
   | 'READ_ONLY';
 ```
 
