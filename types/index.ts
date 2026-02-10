@@ -15,11 +15,11 @@ export interface User {
   updated_at: string;
 }
 
-export type UserRole = 
-  | 'SUPER_ADMIN' 
-  | 'ADMIN' 
-  | 'TEAM_LEAD' 
-  | 'CONTRACTOR' 
+export type UserRole =
+  | 'SUPER_ADMIN'
+  | 'ADMIN'
+  | 'TEAM_LEAD'
+  | 'CONTRACTOR'
   | 'READ_ONLY';
 
 // Subcontractor Types
@@ -48,11 +48,11 @@ export interface Subcontractor {
   updated_at: string;
 }
 
-export type OnboardingStatus = 
-  | 'PENDING' 
-  | 'IN_PROGRESS' 
-  | 'COMPLETE' 
-  | 'APPROVED' 
+export type OnboardingStatus =
+  | 'PENDING'
+  | 'IN_PROGRESS'
+  | 'COMPLETE'
+  | 'APPROVED'
   | 'SUSPENDED';
 
 export interface SubcontractorCredential {
@@ -109,19 +109,19 @@ export interface Ticket {
   updated_at: string;
 }
 
-export type TicketStatus = 
-  | 'DRAFT' 
-  | 'ASSIGNED' 
-  | 'REJECTED' 
-  | 'IN_ROUTE' 
-  | 'ON_SITE' 
-  | 'IN_PROGRESS' 
-  | 'COMPLETE' 
-  | 'PENDING_REVIEW' 
-  | 'APPROVED' 
-  | 'NEEDS_REWORK' 
-  | 'CLOSED' 
-  | 'ARCHIVED' 
+export type TicketStatus =
+  | 'DRAFT'
+  | 'ASSIGNED'
+  | 'REJECTED'
+  | 'IN_ROUTE'
+  | 'ON_SITE'
+  | 'IN_PROGRESS'
+  | 'COMPLETE'
+  | 'PENDING_REVIEW'
+  | 'APPROVED'
+  | 'NEEDS_REWORK'
+  | 'CLOSED'
+  | 'ARCHIVED'
   | 'EXPIRED';
 
 export type PriorityLevel = 'A' | 'B' | 'C' | 'X';
@@ -171,12 +171,12 @@ export interface TimeEntry {
   updated_at: string;
 }
 
-export type WorkType = 
-  | 'STANDARD_ASSESSMENT' 
-  | 'EMERGENCY_RESPONSE' 
-  | 'TRAVEL' 
-  | 'STANDBY' 
-  | 'ADMIN' 
+export type WorkType =
+  | 'STANDARD_ASSESSMENT'
+  | 'EMERGENCY_RESPONSE'
+  | 'TRAVEL'
+  | 'STANDBY'
+  | 'ADMIN'
   | 'TRAINING';
 
 export type TimeEntryStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
@@ -201,12 +201,12 @@ export interface ExpenseReport {
   updated_at: string;
 }
 
-export type ExpenseStatus = 
-  | 'DRAFT' 
-  | 'SUBMITTED' 
-  | 'UNDER_REVIEW' 
-  | 'APPROVED' 
-  | 'REJECTED' 
+export type ExpenseStatus =
+  | 'DRAFT'
+  | 'SUBMITTED'
+  | 'UNDER_REVIEW'
+  | 'APPROVED'
+  | 'REJECTED'
   | 'PAID';
 
 export interface ExpenseItem {
@@ -233,22 +233,22 @@ export interface ExpenseItem {
   updated_at: string;
 }
 
-export type ExpenseCategory = 
-  | 'MILEAGE' 
-  | 'FUEL' 
-  | 'LODGING' 
-  | 'MEALS' 
-  | 'TOLLS' 
-  | 'PARKING' 
-  | 'MATERIALS' 
-  | 'EQUIPMENT_RENTAL' 
+export type ExpenseCategory =
+  | 'MILEAGE'
+  | 'FUEL'
+  | 'LODGING'
+  | 'MEALS'
+  | 'TOLLS'
+  | 'PARKING'
+  | 'MATERIALS'
+  | 'EQUIPMENT_RENTAL'
   | 'OTHER';
 
-export type PolicyFlag = 
-  | 'RECEIPT_REQUIRED' 
-  | 'OVER_LIMIT' 
-  | 'PRE_APPROVAL_REQUIRED' 
-  | 'DUPLICATE_DETECTED' 
+export type PolicyFlag =
+  | 'RECEIPT_REQUIRED'
+  | 'OVER_LIMIT'
+  | 'PRE_APPROVAL_REQUIRED'
+  | 'DUPLICATE_DETECTED'
   | 'INVALID_DATE';
 
 // Assessment Types
@@ -327,12 +327,12 @@ export interface SubcontractorInvoice {
   updated_at: string;
 }
 
-export type InvoiceStatus = 
-  | 'DRAFT' 
-  | 'SUBMITTED' 
-  | 'UNDER_REVIEW' 
-  | 'APPROVED' 
-  | 'PAID' 
+export type InvoiceStatus =
+  | 'DRAFT'
+  | 'SUBMITTED'
+  | 'UNDER_REVIEW'
+  | 'APPROVED'
+  | 'PAID'
   | 'VOID';
 
 export type PaymentMethod = 'ACH' | 'CHECK' | 'WIRE' | 'OTHER';
@@ -351,7 +351,7 @@ export interface MediaAsset {
   storage_path: string;
   public_url?: string;
   thumbnail_url?: string;
-  exif_data?: any;
+  exif_data?: Record<string, unknown>;
   captured_at?: string;
   gps_latitude?: number;
   gps_longitude?: number;
@@ -397,7 +397,7 @@ export interface SyncQueueItem {
   operation: 'CREATE' | 'UPDATE' | 'DELETE';
   entity_type: string;
   entity_id: string;
-  payload: any;
+  payload: Record<string, unknown>;
   user_id: string;
   device_id?: string;
   status: SyncItemStatus;

@@ -25,6 +25,7 @@
 | **Week 2 Status** | ⏳ In Progress (Supabase & Auth) |
 
 ### Completed So Far
+
 - ✅ Project initialization (Next.js 14 + TypeScript + Tailwind)
 - ✅ shadcn/ui components installed (24 components)
 - ✅ Dependencies installed (80+ packages)
@@ -36,6 +37,7 @@
 - ✅ Utility functions (formatters, validators)
 
 ### Next Tasks (Week 2)
+
 - ⏳ Supabase project setup
 - ⏳ Authentication screens (Login, Forgot Password, Reset Password, Magic Link)
 - ⏳ Auth components and ProtectedRoute
@@ -57,6 +59,7 @@
 | **Compliance Level** | FISMA/FedRAMP moderate |
 
 ### Core Purpose
+
 Enable efficient dispatch, tracking, and billing of damage assessment crews while maintaining strict compliance with government contract standards and independent contractor legal requirements.
 
 ---
@@ -162,7 +165,7 @@ Grid2/
 
 ## Key Documentation Reference
 
-### Before Any Work, Read These Files in Order:
+### Before Any Work, Read These Files in Order
 
 1. **`grid-electric-docs/MASTER_BUILD_INSTRUCTIONS.md`** ⭐ **MUST READ FIRST**
    - Section 2: Progress Tracker (check what's done)
@@ -330,7 +333,8 @@ NEXT_PUBLIC_MIN_PHOTOS_REQUIRED=4
 
 ## Development Rules
 
-### ✅ DO:
+### ✅ DO
+
 - Read `MASTER_BUILD_INSTRUCTIONS.md` first
 - Check what's already completed in Section 2
 - Follow the phase order (1 → 2 → 3 → 4)
@@ -341,7 +345,8 @@ NEXT_PUBLIC_MIN_PHOTOS_REQUIRED=4
 - Make minimal changes to achieve the goal
 - Follow existing code patterns
 
-### ❌ DON'T:
+### ❌ DON'T
+
 - Skip reading the master instructions
 - Duplicate work already completed
 - Skip phases or jump ahead
@@ -396,6 +401,7 @@ NEXT_PUBLIC_MIN_PHOTOS_REQUIRED=4
 ### Audit Logging
 
 All actions logged with:
+
 - User ID
 - Timestamp (UTC)
 - Action type
@@ -459,6 +465,7 @@ All actions logged with:
 **This is a documentation package, not a working application.** The actual code needs to be implemented following these specifications.
 
 **Compliance is critical.** All changes must maintain FISMA/FedRAMP moderate compliance requirements, especially:
+
 - Audit logging
 - Data encryption
 - Access controls (RLS)

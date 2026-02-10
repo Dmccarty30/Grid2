@@ -18,14 +18,14 @@ interface BottomNavProps {
 
 const adminNavItems = [
   { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/admin/tickets', label: 'Tickets', icon: Ticket },
+  { href: '/tickets', label: 'Tickets', icon: Ticket },
   { href: '/admin/subcontractors', label: 'Crews', icon: Users },
   { href: '/admin/map', label: 'Map', icon: Map },
 ];
 
 const subcontractorNavItems = [
   { href: '/subcontractor/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/subcontractor/tickets', label: 'Tickets', icon: Ticket },
+  { href: '/tickets', label: 'Tickets', icon: Ticket },
   { href: '/subcontractor/time', label: 'Time', icon: Clock },
   { href: '/subcontractor/expenses', label: 'Expenses', icon: Receipt },
 ];

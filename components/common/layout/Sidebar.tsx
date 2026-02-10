@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent } from '@/components/ui/sheet';
 import {
   LayoutDashboard,
   Ticket,
@@ -16,7 +16,6 @@ import {
   Settings,
   Map,
   Menu,
-  X,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -27,7 +26,7 @@ interface SidebarProps {
 
 const adminNavItems = [
   { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/admin/tickets', label: 'Tickets', icon: Ticket },
+  { href: '/tickets', label: 'Tickets', icon: Ticket },
   { href: '/admin/subcontractors', label: 'Subcontractors', icon: Users },
   { href: '/admin/time-review', label: 'Time Review', icon: Clock },
   { href: '/admin/expense-review', label: 'Expenses', icon: Receipt },
@@ -38,7 +37,7 @@ const adminNavItems = [
 
 const subcontractorNavItems = [
   { href: '/subcontractor/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/subcontractor/tickets', label: 'My Tickets', icon: Ticket },
+  { href: '/tickets', label: 'My Tickets', icon: Ticket },
   { href: '/subcontractor/time', label: 'Time Tracking', icon: Clock },
   { href: '/subcontractor/expenses', label: 'Expenses', icon: Receipt },
   { href: '/subcontractor/invoices', label: 'Invoices', icon: FileText },
@@ -49,7 +48,7 @@ export function Sidebar({ isOpen, onClose, userRole }: SidebarProps) {
   const pathname = usePathname();
   const navItems = userRole === 'admin' ? adminNavItems : subcontractorNavItems;
 
-  const NavContent = () => (
+  const renderNavContent = () => (
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="flex items-center h-16 px-6 border-b">
@@ -103,13 +102,13 @@ export function Sidebar({ isOpen, onClose, userRole }: SidebarProps) {
       {/* Mobile Sidebar */}
       <Sheet open={isOpen} onOpenChange={onClose}>
         <SheetContent side="left" className="w-72 p-0">
-          <NavContent />
+          {renderNavContent()}
         </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
       <aside className="hidden lg:block w-64 fixed left-0 top-16 bottom-0 bg-white dark:bg-slate-800 border-r z-10">
-        <NavContent />
+        {renderNavContent()}
       </aside>
 
       {/* Spacer for desktop */}
