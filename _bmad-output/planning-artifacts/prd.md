@@ -1,5 +1,5 @@
 ---
-stepsCompleted: ['step-01-init', 'step-02-discovery', 'step-03-success', 'step-04-journeys', 'step-05-domain', 'step-06-innovation', 'step-07-project-type', 'step-08-scoping', 'step-09-functional', 'step-10-nonfunctional', 'step-11-polish', 'step-12-complete']
+stepsCompleted: ['step-01-init', 'step-02-discovery', 'step-03-success', 'step-04-journeys', 'step-05-domain', 'step-06-innovation', 'step-07-project-type', 'step-08-scoping', 'step-09-functional', 'step-10-nonfunctional', 'step-11-polish', 'step-12-complete', 'step-e-01-discovery', 'step-e-02-review', 'step-e-03-edit']
 inputDocuments:
   - _bmad-output/planning-artifacts/product-brief-Grid2-2026-02-10.md
   - grid-electric-docs/01-TECHNICAL-PRD.md
@@ -15,11 +15,16 @@ inputDocuments:
   - grid-electric-docs/MASTER_BUILD_INSTRUCTIONS.md
   - grid-electric-docs/README.md
 workflowType: 'prd'
+workflow: 'edit'
 classification:
   projectType: web_app
   domain: energy
   complexity: high
   projectContext: greenfield
+lastEdited: '2026-02-11'
+editHistory:
+  - date: '2026-02-11'
+    changes: 'Added FR37 for ticket grouping, updated NFRs with measurement methods (Chrome Web Vitals, API telemetry), and removed vendor leakage.'
 ---
 
 # Product Requirements Document - Grid2
@@ -108,8 +113,8 @@ The minimum product that lets Grid Electric run a single storm project through G
 1. **Activate Admins** — Contacts Marcus and support staff. They confirm availability. She marks them active in Grid2, assigns permission groups based on this storm's needs.
 2. **Onboard/Recall Contractors** — Reviews the Contractor Readiness Dashboard. Some contractors are pre-approved from last storm, others need fresh onboarding. She sends sign-up links to new hires via SMS.
 3. **Receive Utility Tickets** — The utility issues trouble tickets. Jeanie imports them into Grid2.
-4. **Group by Location** — Clusters tickets by geography/division/region to minimize contractor drive time. *(Manual in Phase 1 → algorithmic in Phase 2+.)*
-5. **Assign to Crews** — Assigns grouped ticket batches to contractor teams.
+4. **Group by Location** — Clusters tickets by geography/division/region to minimize contractor drive time. Jeanie manually creates groups and assigns ticket batches to them. *(Manual in Phase 1 → algorithmic in Phase 2+.)*
+5. **Assign to Crews** — Assigns ticket groups to contractor teams.
 6. **Monitor Progress** — Watches real-time submission status. System-validated tickets flow through; flagged tickets queue for review.
 7. **Review & Approve** — Reviews time entries, expenses. Approves or kicks back.
 8. **Invoice & Close** — Generates invoices from approved data. Closes project. Pulls analytics for future bid projections.
@@ -494,6 +499,7 @@ After running one storm through Grid2, real-world feedback drives priorities:
 - **FR34:** Super Admin sees a project dashboard showing ticket counts grouped by status.
 - **FR35:** Super Admin sees a list of all contractors assigned to the active project with their current ticket assignments.
 - **FR36:** Contractors see a personal dashboard showing their assigned tickets and submission statuses.
+- **FR37:** Super Admin can manually group tickets by location, circuit, or region.
 
 ### Future Functional Requirements (Tracked, Not in MVP)
 
@@ -511,18 +517,18 @@ After running one storm through Grid2, real-world feedback drives priorities:
 
 ### Performance
 
-- **NFR1:** Assessment form submission (excluding photo upload) completes within 3 seconds on a 4G/LTE connection.
-- **NFR2:** Photo upload completes within 10 seconds per image on a 4G/LTE connection.
-- **NFR3:** Dashboard and ticket list views load within 2 seconds.
-- **NFR4:** System supports up to 50 concurrent users without performance degradation.
-- **NFR5:** All user-initiated actions (navigation, form interactions, status changes) respond within 1 second.
+- **NFR1:** Assessment form submission (excluding photo upload) completes within 3 seconds on a 4G/LTE connection, as measured by standardized API response telemetry.
+- **NFR2:** Photo upload completes within 10 seconds per image on a 4G/LTE connection, as measured by client-side browser performance logs.
+- **NFR3:** Dashboard and ticket list views load within 2 seconds, as measured by Chrome Web Vitals (LCP/FCP).
+- **NFR4:** System supports up to 50 concurrent users without performance degradation, as measured by synthetic load testing.
+- **NFR5:** All user-initiated actions (navigation, form interactions, status changes) respond within 1 second, as measured by Chrome Web Vitals.
 
 ### Security
 
 - **NFR6:** All data transmitted between client and server is encrypted in transit (TLS 1.2+).
-- **NFR7:** All data at rest is encrypted (Supabase default encryption).
+- **NFR7:** All data at rest is encrypted using cloud provider default encryption standards.
 - **NFR8:** Contractor PII (W-9 documents, insurance documents) is stored in a secured storage bucket with restricted access — only Super Admin can view.
-- **NFR9:** Row-Level Security (RLS) enforced at the database level — contractors can only access their own data and assigned tickets.
+- **NFR9:** Database-level access controls enforced — contractors can only access their own data and assigned tickets.
 - **NFR10:** Sensitive utility infrastructure data (circuit IDs, substation references, service territory details) is accessible only to authenticated, authorized users.
 - **NFR11:** Session tokens expire after 24 hours of inactivity, requiring re-authentication.
 - **NFR12:** File uploads are restricted to expected formats (PDF, JPEG, PNG, WebP) with server-side validation to prevent malicious uploads.
@@ -535,8 +541,8 @@ After running one storm through Grid2, real-world feedback drives priorities:
 
 ### Reliability
 
-- **NFR16:** System targets 99.5% uptime during active storm projects (Supabase-managed infrastructure).
-- **NFR17:** Data written to Supabase on each ticket submission is immediately durable — no data loss on completed submissions.
+- **NFR16:** System targets 99.5% uptime during active storm projects, as measured by cloud provider SLA monitoring.
+- **NFR17:** Data written to the database on each ticket submission is immediately durable — no data loss on completed submissions.
 - **NFR18:** If a browser tab or session is interrupted mid-form, draft data (FR26) is preserved locally and recoverable.
 - **NFR19:** System provides clear error messages when submission fails, with guidance to retry.
 
